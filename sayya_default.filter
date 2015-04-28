@@ -1,0 +1,138 @@
+#Sayya's item filter, v. 0.1 (4/28/2015)
+
+#Add a currency-colored border to midtier currency
+Show
+	BaseType "Fusing" "Regret" "Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb"
+	SetBorderColor 170 158 130
+
+#Add a unique border and sound to high-end currency (AlertSound4)
+Show
+	BaseType "Exalted" "Divine Orb" "Eternal Orb" "Mirror" "Feather"
+	SetBorderColor 175 96 37
+	PlayAlertSound 4
+
+#Things I don't want changed: uniques, maps, low-tier currency, quest items
+Show
+	Class Map Quest Currency
+
+Show
+	Rarity Unique
+	
+#Add a border to flasks
+Show
+	Class Flask
+	SetBorderColor 88 0 179
+
+#Add a red border and sound to unusual items: fishing rods, jewels (AlertSound7)
+Show
+	Class "Fishing Rod" Jewel
+	SetBorderColor 150 0 0
+	PlayAlertSound 7
+
+#Add a grey border and sound to 6s/5l/6l items (AlertSound2)
+Show
+	LinkedSockets >= 5
+	SetBorderColor 127 127 127
+	PlayAlertSound 2
+
+Show
+	Sockets 6
+	SetBorderColor 127 127 127
+	PlayAlertSound 2
+	
+#Slightly lighten white/magic RGB items a la Antnee
+Show
+	Rarity Normal
+	SocketGroup RGB
+	SetTextColor 255 255 255
+
+Show
+	Rarity Magic
+	SocketGroup RGB
+	SetTextColor 125 175 255
+
+#Add a light blue border to regal recipe rares
+Show
+	Rarity Rare
+	ItemLevel >= 75
+	SetBorderColor 136 136 255
+
+#Add a yellow border to chaos recipe rares
+Show
+	Rarity Rare
+	ItemLevel >= 60
+	SetBorderColor 254 170 0
+
+#Add a teal border to quality gems
+Show
+	Class Gem
+	Quality > 0
+	SetBorderColor 54 100 146
+
+#Add a teal border to ilvl 77+ items
+Show
+	ItemLevel >= 77
+	SetBorderColor 54 100 146
+
+#Always show gems, Maraketh weapons, accessories, hammers, and sacrificial garbs
+Show
+	Class Amulet Ring Quiver Belt Gem
+
+Show
+	BaseType "Sacrificial Garb" "Stone Hammer" "Rock Breaker" "Gavel"
+
+Show
+	BaseType "Reflex Bow" "Blade Staff" "Curved Blade" "Spiked Maul" "Dagger-Axe" "Small Sword" "Horned Sceptre" "Ancient Axe" "Hook Sword" "Snake Mace" "Parrying Dagger" "Grinning Wand" "Deerhorn Claw"
+
+Show
+	BaseType "Matriarchal Bow" "Lunaris Staff" "Slender Blade" "Goedentag" "Impaler" "Court Sword" "Imp Sceptre" "Timeworn Axe" "Catcher" "Serpent Mace" "Prong Dagger" "Ritual Wand" "Crescent Claw"
+	
+Show
+	BaseType "Maraketh Bow" "Moon Staff" "Ancient Blade" "Morning Star" "Demon Fangs" "Ancient Needle" "Demon Sceptre" "Ghost Axe" "Tiger Hook" "Dragon Mace" "Sai" "Sacrament Wand" "Moon Claw"
+
+#Hide white and magic items with a substantial gap between drop and item level
+Hide
+	Rarity Normal Magic
+	DropLevel <= 10
+	ItemLevel >= 20
+	
+Hide
+	Rarity Normal Magic
+	DropLevel <= 20
+	ItemLevel >= 30
+	
+Hide
+	Rarity Normal Magic
+	DropLevel <= 30
+	ItemLevel >= 40
+	
+Hide
+	Rarity Normal Magic
+	DropLevel <= 40
+	ItemLevel >= 50
+
+Hide
+	Rarity Normal Magic
+	DropLevel <= 45
+	ItemLevel >= 55
+	
+Hide
+	Rarity Normal Magic
+	DropLevel <= 50
+	ItemLevel >= 60
+	
+Hide
+	Rarity Normal Magic
+	DropLevel <= 61
+	ItemLevel >= 68
+
+#Dim normal and magic items that aren't hidden but aren't special
+Show
+	Rarity Normal
+	SetTextColor 150 150 150
+
+Show
+	Rarity Magic
+	SetTextColor 95 95 179
+
+
