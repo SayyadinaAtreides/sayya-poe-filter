@@ -1,4 +1,7 @@
-#Sayya's item filter, v. 0.1 (4/28/2015)
+#Sayya's item filter, v. 0.2 (4/30/2015)
+#Changelog:
+#
+# Refined flask and quiver handling (4/30/2015)
 
 #Add a currency-colored border to midtier currency
 Show
@@ -18,11 +21,39 @@ Show
 Show
 	Rarity Unique
 	
-#Add a border to flasks
+#Add a border to flasks that are near the current level
+Show
+	Class "Utility Flask" "Hybrid Flask"
+	SetBorderColor 88 0 179
+
+Show
+	Class Flask
+	BaseType "Small" "Medium "Large"
+	ItemLevel <= 15
+	SetBorderColor 88 0 179
+
+Show
+	Class Flask
+	BaseType "Greater" "Grand"
+	ItemLevel <= 26
+	SetBorderColor 88 0 179
+	
+Show
+	Class Flask
+	BaseType "Giant" "Colossal"
+	ItemLevel <= 38
+	SetBorderColor 88 0 179	
+	
+Show
+	Class Flask
+	BaseType "Sacred" "Hallowed"
+	ItemLevel <= 52
+	SetBorderColor 88 0 179
+	
 Show
 	Class Flask
 	SetBorderColor 88 0 179
-
+	
 #Add a red border and sound to unusual items: fishing rods, jewels (AlertSound7)
 Show
 	Class "Fishing Rod" Jewel
@@ -76,7 +107,7 @@ Show
 
 #Always show gems, Maraketh weapons, accessories, hammers, and sacrificial garbs
 Show
-	Class Amulet Ring Quiver Belt Gem
+	Class Amulet Ring Belt Gem
 
 Show
 	BaseType "Sacrificial Garb" "Stone Hammer" "Rock Breaker" "Gavel"
