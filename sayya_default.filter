@@ -28,31 +28,38 @@ Show
 
 Show
 	Class Flask
-	BaseType "Small" "Medium "Large"
-	ItemLevel <= 15
+	ItemLevel < 15
 	SetBorderColor 88 0 179
 
 Show
 	Class Flask
-	BaseType "Greater" "Grand"
-	ItemLevel <= 26
+	DropLevel > 10
+	ItemLevel < 26
+	SetBorderColor 88 0 179
+
+Show
+	Class Flask
+	DropLevel > 22
+	ItemLevel < 34
 	SetBorderColor 88 0 179
 	
 Show
 	Class Flask
-	BaseType "Giant" "Colossal"
-	ItemLevel <= 38
-	SetBorderColor 88 0 179	
-	
-Show
-	Class Flask
-	BaseType "Sacred" "Hallowed"
-	ItemLevel <= 52
+	DropLevel > 34
+	ItemLevel < 43
 	SetBorderColor 88 0 179
 	
 Show
 	Class Flask
+	DropLevel > 40
+	ItemLevel < 60
 	SetBorderColor 88 0 179
+
+Show
+	Class Flask
+	DropLevel > 58
+	SetBorderColor 88 0 179
+
 	
 #Add a red border and sound to unusual items: fishing rods, jewels (AlertSound7)
 Show
