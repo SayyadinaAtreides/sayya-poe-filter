@@ -1,25 +1,34 @@
-#Sayya's item filter, v. 0.2 (4/30/2015)
+#Sayya's item filter, v. 0.4 (5/2/2015)
 #Changelog:
 #
+# Added alpha values to the dimmed items, increased font size on some items, tweaked level ranges for hiding items (5/2/2015)
+# Maximized volume on alert sounds, tweaked high-end currency alert (5/1/2015)
 # Refined flask and quiver handling (4/30/2015)
 
 #Add a currency-colored border to midtier currency
 Show
 	BaseType "Fusing" "Regret" "Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb"
 	SetBorderColor 170 158 130
+	SetFontSize 38
 
-#Add a unique border and sound to high-end currency (AlertSound4)
+#Add a unique border and sound to high-end currency (AlertSound5)
 Show
-	BaseType "Exalted" "Divine Orb" "Eternal Orb" "Mirror" "Feather"
+	BaseType "Exalted" "Divine Orb" "Eternal Orb" "Mirror of" "Feather"
 	SetBorderColor 175 96 37
-	PlayAlertSound 4
+	PlayAlertSound 5 100
+	SetFontSize 42
 
-#Things I don't want changed: uniques, maps, low-tier currency, quest items
+#Things I don't want changed (except font size): uniques, maps, low-tier currency, quest items
 Show
-	Class Map Quest Currency
+	Class Map Quest
+	SetFontSize 38
+	
+Show
+	Class Currency
 
 Show
 	Rarity Unique
+	SetFontSize 38
 	
 #Add a border to flasks that are near the current level
 Show
@@ -52,7 +61,7 @@ Show
 Show
 	Class Flask
 	DropLevel > 40
-	ItemLevel < 60
+	ItemLevel < 55
 	SetBorderColor 88 0 179
 
 Show
@@ -65,18 +74,21 @@ Show
 Show
 	Class "Fishing Rod" Jewel
 	SetBorderColor 150 0 0
-	PlayAlertSound 7
+	PlayAlertSound 7 100
+	SetFontSize 38
 
 #Add a grey border and sound to 6s/5l/6l items (AlertSound2)
 Show
 	LinkedSockets >= 5
 	SetBorderColor 127 127 127
-	PlayAlertSound 2
+	PlayAlertSound 2 100
+	SetFontSize 38
 
 Show
 	Sockets 6
 	SetBorderColor 127 127 127
-	PlayAlertSound 2
+	PlayAlertSound 2 100
+	SetFontSize 38
 	
 #Slightly lighten white/magic RGB items a la Antnee
 Show
@@ -142,22 +154,22 @@ Hide
 Hide
 	Rarity Normal Magic
 	DropLevel <= 30
-	ItemLevel >= 40
+	ItemLevel >= 38
 	
 Hide
 	Rarity Normal Magic
 	DropLevel <= 40
-	ItemLevel >= 50
+	ItemLevel >= 46
 
 Hide
 	Rarity Normal Magic
 	DropLevel <= 45
-	ItemLevel >= 55
+	ItemLevel >= 51
 	
 Hide
 	Rarity Normal Magic
 	DropLevel <= 50
-	ItemLevel >= 60
+	ItemLevel >= 55
 	
 Hide
 	Rarity Normal Magic
@@ -167,10 +179,14 @@ Hide
 #Dim normal and magic items that aren't hidden but aren't special
 Show
 	Rarity Normal
-	SetTextColor 150 150 150
+	SetTextColor 150 150 150 180
+	SetBackgroundColor 0 0 0 127
+	SetFontSize 25
 
 Show
 	Rarity Magic
-	SetTextColor 95 95 179
+	SetTextColor 95 95 179 180
+	SetBackgroundColor 0 0 0 127
+	SetFontSize 25
 
 
