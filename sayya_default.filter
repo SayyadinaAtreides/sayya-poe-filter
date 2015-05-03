@@ -1,6 +1,7 @@
-#Sayya's item filter, v. 0.4 (5/2/2015)
+#Sayya's item filter, v. 1.0 (5/3/2015)
 #Changelog:
 #
+# Adjusted chaos/regal recipe handling to exclude 1H weapons, shields, and quivers; shrunk normal/magic accessories (5/3/2015)
 # Added alpha values to the dimmed items, increased font size on some items, tweaked level ranges for hiding items (5/2/2015)
 # Maximized volume on alert sounds, tweaked high-end currency alert (5/1/2015)
 # Refined flask and quiver handling (4/30/2015)
@@ -28,11 +29,11 @@ Show
 
 Show
 	Rarity Unique
-	SetFontSize 38
+	SetFontSize 42
 	
 #Add a border to flasks that are near the current level
 Show
-	Class "Utility Flask" "Hybrid Flask"
+	Class "Utility Flask"
 	SetBorderColor 88 0 179
 
 Show
@@ -75,20 +76,20 @@ Show
 	Class "Fishing Rod" Jewel
 	SetBorderColor 150 0 0
 	PlayAlertSound 7 100
-	SetFontSize 38
+	SetFontSize 42
 
 #Add a grey border and sound to 6s/5l/6l items (AlertSound2)
 Show
 	LinkedSockets >= 5
 	SetBorderColor 127 127 127
 	PlayAlertSound 2 100
-	SetFontSize 38
+	SetFontSize 42
 
 Show
 	Sockets 6
 	SetBorderColor 127 127 127
 	PlayAlertSound 2 100
-	SetFontSize 38
+	SetFontSize 42
 	
 #Slightly lighten white/magic RGB items a la Antnee
 Show
@@ -105,42 +106,74 @@ Show
 Show
 	Rarity Rare
 	ItemLevel >= 75
+	Class Shields "One Hand" Quivers Claws Daggers Wands
+
+Show
+	Rarity Rare
+	ItemLevel >= 75
 	SetBorderColor 136 136 255
 
 #Add a yellow border to chaos recipe rares
 Show
 	Rarity Rare
 	ItemLevel >= 60
+	Class Shields "One Hand" Quivers Claws Daggers Wands
+
+Show
+	Rarity Rare
+	ItemLevel >= 60
 	SetBorderColor 254 170 0
 
-#Add a teal border to quality gems
+#Slightly enlarge and add a teal border to quality gems; treat all other gems normally
 Show
 	Class Gem
 	Quality > 0
+	SetFontSize 38
 	SetBorderColor 54 100 146
 
-#Add a teal border to ilvl 77+ items
+Show
+	Class Gem
+	
+#Add a teal border to ilvl 77+ items of desired bases
 Show
 	ItemLevel >= 77
+	Class Amulets Rings Belts
 	SetBorderColor 54 100 146
 
-#Always show gems, Maraketh weapons, accessories, hammers, and sacrificial garbs
+#Show all rares not covered above (safeguard)
 Show
+	Rarity Rare
+	
+#Always show gems, Maraketh weapons (capped by level), accessories (reduced size), hammers (white or magic 12%), and sacrificial garbs
+Show
+	Rarity Normal Magic
 	Class Amulet Ring Belt Gem
+	SetFontSize 25
 
 Show
-	BaseType "Sacrificial Garb" "Stone Hammer" "Rock Breaker" "Gavel"
+	Rarity Normal
+	BaseType "Stone Hammer" "Rock Breaker" "Gavel"
+	
+Show
+	Rarity Magic
+	BaseType "Stone Hammer" "Rock Breaker" "Gavel"
+	Quality >= 12
+	
+Show
+	BaseType "Sacrificial Garb"
 
 Show
+	ItemLevel < 50
 	BaseType "Reflex Bow" "Blade Staff" "Curved Blade" "Spiked Maul" "Dagger-Axe" "Small Sword" "Horned Sceptre" "Ancient Axe" "Hook Sword" "Snake Mace" "Parrying Dagger" "Grinning Wand" "Deerhorn Claw"
 
 Show
+	ItemLevel < 70
 	BaseType "Matriarchal Bow" "Lunaris Staff" "Slender Blade" "Goedentag" "Impaler" "Court Sword" "Imp Sceptre" "Timeworn Axe" "Catcher" "Serpent Mace" "Prong Dagger" "Ritual Wand" "Crescent Claw"
 	
 Show
 	BaseType "Maraketh Bow" "Moon Staff" "Ancient Blade" "Morning Star" "Demon Fangs" "Ancient Needle" "Demon Sceptre" "Ghost Axe" "Tiger Hook" "Dragon Mace" "Sai" "Sacrament Wand" "Moon Claw"
 
-#Hide white and magic items with a substantial gap between drop and item level
+#Hide white and magic items with a substantial gap between drop and item level (REMOVE FROM HERE UNTIL NEXT COMMENT if you want nothing hidden)
 Hide
 	Rarity Normal Magic
 	DropLevel <= 10
