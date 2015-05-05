@@ -1,6 +1,8 @@
-#Sayya's item filter, v. 1.0 (5/3/2015)
-#Changelog:
+#Sayya's item filter, v. 1.01 (5/5/2015)
 #
+# Changelog:
+#
+# Added block for chance base highlighting (5/5/2015)
 # Adjusted chaos/regal recipe handling to exclude 1H weapons, shields, and quivers; shrunk normal/magic accessories (5/3/2015)
 # Added alpha values to the dimmed items, increased font size on some items, tweaked level ranges for hiding items (5/2/2015)
 # Maximized volume on alert sounds, tweaked high-end currency alert (5/1/2015)
@@ -8,7 +10,7 @@
 
 #Add a currency-colored border to midtier currency
 Show
-	BaseType "Fusing" "Regret" "Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb"
+	BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb"
 	SetBorderColor 170 158 130
 	SetFontSize 38
 
@@ -31,9 +33,14 @@ Show
 	Rarity Unique
 	SetFontSize 42
 	
-#Add a border to flasks that are near the current level
+#Add a border to flasks that are near the current level or have 15%+ quality
 Show
 	Class "Utility Flask"
+	SetBorderColor 88 0 179
+
+Show
+	Class Flask
+	Quality >= 15
 	SetBorderColor 88 0 179
 
 Show
@@ -124,7 +131,7 @@ Show
 	ItemLevel >= 60
 	SetBorderColor 254 170 0
 
-#Slightly enlarge and add a teal border to quality gems; treat all other gems normally
+#Slightly enlarge and add a teal border to quality gems; shrink all other gems slightly
 Show
 	Class Gem
 	Quality > 0
@@ -133,6 +140,13 @@ Show
 
 Show
 	Class Gem
+	SetFontSize 25
+	
+#Add a dark green border to normal items of desired chance bases
+Show
+	Rarity Normal
+	BaseType "Occultist's" "Judgement Staff" "Agate Amulet" "Imperial Bow"
+	SetBorderColor 0 73 0
 	
 #Add a teal border to ilvl 77+ items of desired bases
 Show
@@ -144,10 +158,10 @@ Show
 Show
 	Rarity Rare
 	
-#Always show gems, Maraketh weapons (capped by level), accessories (reduced size), hammers (white or magic 12%), and sacrificial garbs
+#Always show Maraketh weapons (capped by level), accessories (reduced size), hammers (white or magic 12%), and sacrificial garbs
 Show
 	Rarity Normal Magic
-	Class Amulet Ring Belt Gem
+	Class Amulet Ring Belt
 	SetFontSize 25
 
 Show
