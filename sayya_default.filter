@@ -338,6 +338,7 @@ Hide # Trash - Low Base
     DropLevel <= 10
     Rarity = Normal
     SetTextColor 150 150 150 180 # Dim white
+    SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
 
 Hide # Trash - Low Base
@@ -345,6 +346,7 @@ Hide # Trash - Low Base
     DropLevel <= 20
     Rarity = Normal
     SetTextColor 150 150 150 180 # Dim white
+    SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
 
 Hide # Trash - Low Base
@@ -352,6 +354,7 @@ Hide # Trash - Low Base
     DropLevel <= 30
     Rarity = Normal
     SetTextColor 150 150 150 180 # Dim white
+    SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
 
 Hide # Trash - Low Base
@@ -359,6 +362,7 @@ Hide # Trash - Low Base
     DropLevel <= 40
     Rarity = Normal
     SetTextColor 150 150 150 180 # Dim white
+    SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
 
 Hide # Trash - Low Base
