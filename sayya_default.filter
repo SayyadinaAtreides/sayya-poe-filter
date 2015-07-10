@@ -68,6 +68,8 @@ Show # Flasks - Hybrid - Hallowed
 	
 Hide # Flasks - Hybrid - Other
     Class "Hybrid Flask"
+    SetTextColor 150 150 150 180 # Dim white
+    SetBackgroundColor 0 0 0 127 # Dim background
 
 Show # Flasks - Mana - ilvl < 15
     ItemLevel < 15
@@ -334,56 +336,128 @@ Show # Maraketh Weapons - Merciless
 Hide # Trash - Low Base
     ItemLevel >= 20
     DropLevel <= 10
-    Rarity <= Magic
+    Rarity = Normal
+    SetTextColor 150 150 150 180 # Dim white
     SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
 
 Hide # Trash - Low Base
     ItemLevel >= 30
     DropLevel <= 20
-    Rarity <= Magic
+    Rarity = Normal
+    SetTextColor 150 150 150 180 # Dim white
     SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
 
 Hide # Trash - Low Base
     ItemLevel >= 38
     DropLevel <= 30
-    Rarity <= Magic
+    Rarity = Normal
+    SetTextColor 150 150 150 180 # Dim white
     SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
 
 Hide # Trash - Low Base
     ItemLevel >= 46
     DropLevel <= 40
-    Rarity <= Magic
+    Rarity = Normal
+    SetTextColor 150 150 150 180 # Dim white
     SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
 
 Hide # Trash - Low Base
     ItemLevel >= 51
     DropLevel <= 45
-    Rarity <= Magic
+    Rarity = Normal
+    SetTextColor 150 150 150 180 # Dim white
     SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
 
 Hide # Trash - Low Base
     ItemLevel >= 55
     DropLevel <= 50
-    Rarity <= Magic
+    Rarity = Normal
+    SetTextColor 150 150 150 180 # Dim white
     SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
 
 Hide # Trash - Low Base
     ItemLevel >= 68
     DropLevel <= 61
-    Rarity <= Magic
+    Rarity = Normal
+    SetTextColor 150 150 150 180 # Dim white
     SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
 
 Hide # Trash - Low Base
     ItemLevel >= 75
     DropLevel <= 69
-    Rarity <= Magic
+    Rarity = Normal
+    SetTextColor 150 150 150 180 # Dim white
+    SetBackgroundColor 0 0 0 127 # Dim background
+    SetFontSize 25
+	
+Hide # Trash - Low Base
+    ItemLevel >= 20
+    DropLevel <= 10
+    Rarity = Magic
+    SetTextColor 95 95 179 180 # Dim blue
+    SetBackgroundColor 0 0 0 127 # Dim background
+    SetFontSize 25
+
+Hide # Trash - Low Base
+    ItemLevel >= 30
+    DropLevel <= 20
+    Rarity = Magic
+    SetTextColor 95 95 179 180 # Dim blue
+    SetBackgroundColor 0 0 0 127 # Dim background
+    SetFontSize 25
+
+Hide # Trash - Low Base
+    ItemLevel >= 38
+    DropLevel <= 30
+    Rarity = Magic
+    SetTextColor 95 95 179 180 # Dim blue
+    SetBackgroundColor 0 0 0 127 # Dim background
+    SetFontSize 25
+
+Hide # Trash - Low Base
+    ItemLevel >= 46
+    DropLevel <= 40
+    Rarity = Magic
+    SetTextColor 95 95 179 180 # Dim blue
+    SetBackgroundColor 0 0 0 127 # Dim background
+    SetFontSize 25
+
+Hide # Trash - Low Base
+    ItemLevel >= 51
+    DropLevel <= 45
+    Rarity = Magic
+    SetTextColor 95 95 179 180 # Dim blue
+    SetBackgroundColor 0 0 0 127 # Dim background
+    SetFontSize 25
+
+Hide # Trash - Low Base
+    ItemLevel >= 55
+    DropLevel <= 50
+    Rarity = Magic
+    SetTextColor 95 95 179 180 # Dim blue
+    SetBackgroundColor 0 0 0 127 # Dim background
+    SetFontSize 25
+
+Hide # Trash - Low Base
+    ItemLevel >= 68
+    DropLevel <= 61
+    Rarity = Magic
+    SetTextColor 95 95 179 180 # Dim blue
+    SetBackgroundColor 0 0 0 127 # Dim background
+    SetFontSize 25
+
+Hide # Trash - Low Base
+    ItemLevel >= 75
+    DropLevel <= 69
+    Rarity = Magic
+    SetTextColor 95 95 179 180 # Dim blue
     SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
 
@@ -413,4 +487,3 @@ Show # A1N drops - Normal
 Show # A1N drops - Magic
     Rarity = Magic
     SetFontSize 25
-
