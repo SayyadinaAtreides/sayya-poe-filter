@@ -63,9 +63,9 @@ Show # Flasks - Quality
 
 Show # Flasks - Hybrid - Hallowed
     BaseType "Hallowed Hybrid Flask"
-	ItemLevel < 68
-	SetBorderColor 88 0 179 # Utility/Hybrid/Quality flask
-	
+    ItemLevel < 68
+    SetBorderColor 88 0 179 # Utility/Hybrid/Quality flask
+
 Hide # Flasks - Hybrid - Other
     Class "Hybrid Flask"
     SetTextColor 150 150 150 180 # Dim white
@@ -131,13 +131,13 @@ Show # Flasks - Life - ilvl < 55
 
 Show # Flasks - Mana - Divine+ - (under 70)
     DropLevel > 58
-	ItemLevel < 70
+    ItemLevel < 70
     Class "Mana Flask"
     SetBorderColor 88 0 222 # Mana flask
 
 Show # Flasks - Life - Divine+ - (under 70)
     DropLevel > 58
-	ItemLevel < 70
+    ItemLevel < 70
     Class "Life Flask"
     SetBorderColor 83 0 110 # Life flask
 
@@ -145,7 +145,7 @@ Show # Flasks - Mana - Divine+ - (over 70)
     DropLevel > 58
     Class "Mana Flask"
     SetFontSize 25
-	
+
 Show # Flasks - Life - Divine+ - (over 70)
     DropLevel > 58
     Class "Life Flask"
@@ -166,14 +166,14 @@ Show # Valuables - Fishing Rods, Jewels, Div Cards
 Show # Valuables - 5/6L
     LinkedSockets >= 5
     SetBorderColor 127 127 127 # 6S/5L/6L border
-	SetBackgroundColor 0 0 0 255 # Contrast background
+    SetBackgroundColor 0 0 0 255 # Contrast background
     SetFontSize 42
     PlayAlertSound 2 100
 
 Show # Valuables - 6S
     Sockets = 6
     SetBorderColor 127 127 127 # 6S/5L/6L border
-	SetBackgroundColor 0 0 0 255 # Contrast background
+    SetBackgroundColor 0 0 0 255 # Contrast background
     SetFontSize 42
     PlayAlertSound 2 100
 
@@ -182,13 +182,13 @@ Show # Valuables - RGB Items
     Rarity = Normal
     SocketGroup "RGB"
     SetTextColor 255 255 255 # RGB whites
-	SetBackgroundColor 0 0 0 255 # Contrast background
+    SetBackgroundColor 0 0 0 255 # Contrast background
 
 Show # Valuables - RGB Items
     Rarity = Magic
     SocketGroup "RGB"
     SetTextColor 125 175 255 # RGB blues
-	SetBackgroundColor 0 0 0 255 # Contrast background
+    SetBackgroundColor 0 0 0 255 # Contrast background
 
 # Section: Regal Recipe
 
@@ -201,15 +201,15 @@ Show # Rares - 75+ - Nonrecipe
 Show # Rares - 75+ - Regal recipe - Quality & Jewelry
     ItemLevel >= 75
     Rarity = Rare
-	Class "Rings" "Amulets" "Belts"
+    Class "Rings" "Amulets" "Belts"
     SetBorderColor 136 136 255 # Regal recipe bright
 
 Show # Rares - 75+ - Regal recipe - Quality & Jewelry
-	ItemLevel >= 75
+    ItemLevel >= 75
     Rarity = Rare
-	Quality > 15
-	SetBorderColor 136 136 255 # Regal recipe bright
-	
+    Quality > 15
+    SetBorderColor 136 136 255 # Regal recipe bright
+
 Show # Rares - 75+ - Regal recipe
     ItemLevel >= 75
     Rarity = Rare
@@ -224,17 +224,17 @@ Show # Rares - 60+ - Nonrecipe
     Class "Shields" "One Hand" "Quivers" "Claws" "Daggers" "Wands" "Sceptres"
 
 Show # Rares - 60+ - Chaos recipe - Quality & Jewelry
-	ItemLevel >= 60
+    ItemLevel >= 60
     Rarity = Rare
     Class "Rings" "Amulets" "Belts"
-	SetBorderColor 254 170 0 # Chaos recipe bright
-	
+    SetBorderColor 254 170 0 # Chaos recipe bright
+
 Show # Rares - 60+ - Chaos recipe - Quality & Jewelry
-	ItemLevel >= 60
+    ItemLevel >= 60
     Rarity = Rare
     Quality > 15
-	SetBorderColor 254 170 0 # Chaos recipe bright
-	
+    SetBorderColor 254 170 0 # Chaos recipe bright
+
 Show # Rares - 60+ - Chaos recipe
     ItemLevel >= 60
     Rarity = Rare
@@ -256,10 +256,10 @@ Show # Gems - Valuable
     SetFontSize 38
 
 Show # Gems - Vaal
-	Class "Gem"
-	BaseType "Vaal"
-	SetBorderColor 150 0 0 # Vaal gems
-	SetFontSize 38
+    Class "Gem"
+    BaseType "Vaal"
+    SetBorderColor 150 0 0 # Vaal gems
+    SetFontSize 38
 
 Show # Gems - Support
     Class "Support"
@@ -280,9 +280,9 @@ Show # Bases - Chance
 # Add a teal border to ilvl 77+ items of desired bases
 Show # Bases - 77+ crafting
     ItemLevel >= 77
-	Rarity = Normal
+    Rarity = Normal
     BaseType "Gold"
-	Class "Amulets" "Rings"
+    Class "Amulets" "Rings"
     SetBorderColor 54 100 146 # Crafting white bases
 
 # Section: Rares
@@ -314,21 +314,21 @@ Show # Valuables - Sacrificial Garb
 Show # Maraketh Weapons - Normal
     ItemLevel < 50
     BaseType "Reflex Bow" "Crescent Staff" "Curved Blade" "Morning Star" "Dagger Axe" "Smallsword" "Horned Sceptre" "Etched Hatchet" "Hook Sword" "Wyrm Mace" "Prong Dagger" "Pagan Wand" "Double Claw"
-	SetFontSize 25
-	
+    SetFontSize 25
+
 Show # Maraketh Weapons - Cruel
     ItemLevel < 70
     BaseType "Steelwood Bow" "Moon Staff" "Lithe Blade" "Solar Maul" "Talon Axe" "Courtesan Sword" "Stag Sceptre" "Engraved Hatchet" "Grappler" "Dragon Mace" "Trisula" "Heathen Wand" "Twin Claw"
-	SetFontSize 25
-	
+    SetFontSize 25
+
 Show # Maraketh Weapons - Merciless
     BaseType "Maraketh Bow" "Eclipse Staff" "Exquisite Blade" "Coronal Maul" "Fleshripper" "Dragoon Sword" "Sambar Sceptre" "Runic Hatchet" "Tiger Hook" "Behemoth Mace" "Profane Wand" "Gemini Claw"
-	SetFontSize 25
-	
+    SetFontSize 25
+
 Show # Maraketh Weapons - Merciless
     Class "Daggers"
     BaseType "Sai"
-	SetFontSize 25
+    SetFontSize 25
 
 # Section: Cleanup (hiding)
 
@@ -396,7 +396,7 @@ Hide # Trash - Low Base
     SetTextColor 150 150 150 180 # Dim white
     SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
-	
+
 Hide # Trash - Low Base
     ItemLevel >= 20
     DropLevel <= 10
