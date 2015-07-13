@@ -1,8 +1,9 @@
 # Script edited with Filtration - https://github.com/ben-wallis/Filtration
-# Sayya's item filter, v. 1.23 (7/2/2015)
+# Sayya's item filter, v. 1.24 (7/13/2015)
 # 
 # Changelog:
 # 
+# Added Portal, now shows all magic items (shrunk) by default for Warbands (7/13/2015)
 # Font size changes, small refinement to recipe highlighting, added support for Filtration themes (7/2/2015)
 # Minor color changes (6/26/2015)
 # Added Filtration support, tweaked hybrid flask handling (6/15/2015)
@@ -251,7 +252,7 @@ Show # Gems - Quality
 
 Show # Gems - Valuable
     Class "Gem"
-    BaseType "Empower" "Enhance" "Enlighten"
+    BaseType "Empower" "Enhance" "Enlighten" "Portal"
     SetBorderColor 54 100 146 # Valuable/quality gems
     SetFontSize 38
 
@@ -330,6 +331,10 @@ Show # Maraketh Weapons - Merciless
     BaseType "Sai"
     SetFontSize 25
 
+Show # All Magic Items (Warbands)
+    Rarity = Magic
+    SetFontSize 18
+	
 # Section: Cleanup (hiding)
 
 # Hide white and magic items with a substantial gap between drop and item level (REMOVE FROM HERE UNTIL NEXT COMMENT if you want nothing hidden)
