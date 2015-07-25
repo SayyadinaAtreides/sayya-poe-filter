@@ -1,8 +1,9 @@
 # Script edited with Filtration - https://github.com/ben-wallis/Filtration
-# Sayya's item filter, v. 1.24 (7/13/2015)
+# Sayya's item filter, v. 1.3 (7/25/2015)
 # 
 # Changelog:
 # 
+# Adjusted Warbands filter, added block for 4Ls, adjusted aura handling, added alert sounds to midtier currency, adjusted some font sizes (7/25/2015)
 # Added Portal, now shows all magic items (shrunk) by default for Warbands (7/13/2015)
 # Font size changes, small refinement to recipe highlighting, added support for Filtration themes (7/2/2015)
 # Minor color changes (6/26/2015)
@@ -23,6 +24,7 @@ Show # Currency - Mid
     BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
+	PlayAlertSound 3 100
 
 # Add a unique border and sound to high-end currency (AlertSound5)
 Show # Currency - High
@@ -163,6 +165,12 @@ Show # Valuables - Fishing Rods, Jewels, Div Cards
 
 # Section: Links and Sockets
 
+#Highlight 4L items below level 50
+Show # Valuables - 4L
+    LinkedSockets = 4
+	SetBackgroundColor 0 0 0 255 # Contrast background
+    SetFontSize 38
+
 # Add a grey border and sound to 6s/5l/6l items (AlertSound2)
 Show # Valuables - 5/6L
     LinkedSockets >= 5
@@ -266,7 +274,12 @@ Show # Gems - Support
     Class "Support"
     SetFontSize 35
 
-Show # Gems - Active
+Show # Gems - Active - Aura/Buff
+    Class "Active"
+    BaseType "Wrath" "Anger" "Hatred" "Clarity" "Determination" "Grace" "Discipline" "Vitality" "Haste" "Purity of" "Herald of" "Arctic Armour" 
+    SetFontSize 35
+	
+Show # Gems - Active - Other
     Class "Active"
     SetFontSize 25
 
@@ -331,9 +344,10 @@ Show # Maraketh Weapons - Merciless
     BaseType "Sai"
     SetFontSize 25
 
-Show # All Magic Items (Warbands)
+Show # All Magic Boots/Gloves/Helms (Warbands)
     Rarity = Magic
-    SetFontSize 18
+	Class Boots Gloves Helmets
+    SetFontSize 25
 	
 # Section: Cleanup (hiding)
 
