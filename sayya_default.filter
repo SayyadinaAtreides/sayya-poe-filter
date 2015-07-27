@@ -1,8 +1,9 @@
 # Script edited with Filtration - https://github.com/ben-wallis/Filtration
-# Sayya's item filter, v. 1.3 (7/25/2015)
+# Sayya's item filter, v. 1.31 (7/27/2015)
 # 
 # Changelog:
 # 
+# Fixed 4L handling (7/27/2015)
 # Adjusted Warbands filter, added block for 4Ls, adjusted aura handling, added alert sounds to midtier currency, adjusted some font sizes (7/25/2015)
 # Added Portal, now shows all magic items (shrunk) by default for Warbands (7/13/2015)
 # Font size changes, small refinement to recipe highlighting, added support for Filtration themes (7/2/2015)
@@ -165,12 +166,6 @@ Show # Valuables - Fishing Rods, Jewels, Div Cards
 
 # Section: Links and Sockets
 
-#Highlight 4L items below level 50
-Show # Valuables - 4L
-    LinkedSockets = 4
-	SetBackgroundColor 0 0 0 255 # Contrast background
-    SetFontSize 38
-
 # Add a grey border and sound to 6s/5l/6l items (AlertSound2)
 Show # Valuables - 5/6L
     LinkedSockets >= 5
@@ -192,12 +187,14 @@ Show # Valuables - RGB Items
     SocketGroup "RGB"
     SetTextColor 255 255 255 # RGB whites
     SetBackgroundColor 0 0 0 255 # Contrast background
+    SetFontSize 38
 
 Show # Valuables - RGB Items
     Rarity = Magic
     SocketGroup "RGB"
     SetTextColor 125 175 255 # RGB blues
     SetBackgroundColor 0 0 0 255 # Contrast background
+    SetFontSize 38
 
 # Section: Regal Recipe
 
@@ -348,6 +345,12 @@ Show # All Magic Boots/Gloves/Helms (Warbands)
     Rarity = Magic
 	Class Boots Gloves Helmets
     SetFontSize 25
+	
+#Highlight 4L items below level 50
+Show # Valuables - 4L
+    LinkedSockets = 4
+	ItemLevel < 50
+    SetBackgroundColor 0 0 0 255 # Contrast background
 	
 # Section: Cleanup (hiding)
 
