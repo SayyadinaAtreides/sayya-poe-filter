@@ -1,8 +1,9 @@
 # Script edited with Filtration - https://github.com/ben-wallis/Filtration
-# Sayya's item filter, v. 1.32 (8/1/2015)
+# Sayya's item filter, v. 1.33 (8/1/2015)
 # 
 # Changelog:
 # 
+# Added handling for chaos Warbands weapons (show magic weapons of ilvl 70+) (8/1/2015)
 # Adjusted PlayAlertSound volumes (8/1/2015)
 # Fixed 4L handling (7/27/2015)
 # Adjusted Warbands filter, added block for 4Ls, adjusted aura handling, added alert sounds to midtier currency, adjusted some font sizes (7/25/2015)
@@ -305,7 +306,18 @@ Show # Rares - Other
 
 # Section: Other Items (accessories, chisel hammers, Maraketh weapons, Sacrificial Garb)
 
-# Always show Maraketh weapons (capped by level), accessories (reduced size), hammers (white or magic 12%), and sacrificial garbs
+# Always show potential Warbands blues, Maraketh weapons (capped by level), accessories (reduced size), hammers (white or magic 12%), and sacrificial garbs
+Show # Warbands - All Magic Boots/Gloves/Helms
+    Rarity = Magic
+	Class Boots Gloves Helmets
+    SetFontSize 25
+
+Show # Warbands - Magic Weapons
+	Rarity = Magic
+	ItemLevel >= 70
+	Class Claws Daggers Wands Swords Axews Maces Bows Staves Sceptres
+	SetFontSize 25
+
 Show # Jewelry
     Rarity <= Magic
     Class "Amulet" "Ring" "Belt"
@@ -342,10 +354,7 @@ Show # Maraketh Weapons - Merciless
     BaseType "Sai"
     SetFontSize 25
 
-Show # All Magic Boots/Gloves/Helms (Warbands)
-    Rarity = Magic
-	Class Boots Gloves Helmets
-    SetFontSize 25
+
 	
 #Highlight 4L items below level 50
 Show # Valuables - 4L
