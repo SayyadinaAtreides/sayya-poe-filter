@@ -315,7 +315,7 @@ Show # Warbands - All Magic Boots/Gloves/Helms
 Show # Warbands - Magic Weapons
 	Rarity = Magic
 	ItemLevel >= 70
-	Class Claws Daggers Wands Swords Axews Maces Bows Staves Sceptres
+	Class Claws Daggers Wands Swords Axes Maces Bows Staves Sceptres
 	SetFontSize 25
 
 Show # Jewelry
