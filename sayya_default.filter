@@ -1,8 +1,9 @@
 # Script edited with Filtration - https://github.com/ben-wallis/Filtration
-# Sayya's item filter, v. 1.31 (7/27/2015)
+# Sayya's item filter, v. 1.32 (8/1/2015)
 # 
 # Changelog:
 # 
+# Adjusted PlayAlertSound volumes (8/1/2015)
 # Fixed 4L handling (7/27/2015)
 # Adjusted Warbands filter, added block for 4Ls, adjusted aura handling, added alert sounds to midtier currency, adjusted some font sizes (7/25/2015)
 # Added Portal, now shows all magic items (shrunk) by default for Warbands (7/13/2015)
@@ -25,14 +26,14 @@ Show # Currency - Mid
     BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
-	PlayAlertSound 3 100
+	PlayAlertSound 3 300
 
 # Add a unique border and sound to high-end currency (AlertSound5)
 Show # Currency - High
     BaseType "Exalted" "Divine Orb" "Eternal Orb" "Mirror of" "Feather"
     SetBorderColor 175 96 37 # Rare currency
     SetFontSize 42
-    PlayAlertSound 5 100
+    PlayAlertSound 5 300
 
 # Default handling of other currency
 Show # Currency - Low
@@ -162,7 +163,7 @@ Show # Valuables - Fishing Rods, Jewels, Div Cards
     Class "Fishing Rod" "Jewel" "Divination Card"
     SetBorderColor 150 0 0 # Special drops
     SetFontSize 42
-    PlayAlertSound 7 100
+    PlayAlertSound 7 300
 
 # Section: Links and Sockets
 
@@ -172,14 +173,14 @@ Show # Valuables - 5/6L
     SetBorderColor 127 127 127 # 6S/5L/6L border
     SetBackgroundColor 0 0 0 255 # Contrast background
     SetFontSize 42
-    PlayAlertSound 2 100
+    PlayAlertSound 2 300
 
 Show # Valuables - 6S
     Sockets = 6
     SetBorderColor 127 127 127 # 6S/5L/6L border
     SetBackgroundColor 0 0 0 255 # Contrast background
     SetFontSize 42
-    PlayAlertSound 2 100
+    PlayAlertSound 2 300
 
 # Slightly lighten white/magic RGB items a la Antnee
 Show # Valuables - RGB Items
