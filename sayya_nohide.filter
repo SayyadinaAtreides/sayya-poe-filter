@@ -1,0 +1,372 @@
+# Script edited with Filtration - https://github.com/ben-wallis/Filtration
+# Sayya's item filter, no-hide version, v. 1.33 (8/4/2015)
+# 
+# Changelog:
+# 
+# Created filter version that hides/dims nothing (8/4/2015)
+# Added handling for chaos Warbands weapons (show magic weapons of ilvl 70+) (8/1/2015)
+# Adjusted PlayAlertSound volumes (8/1/2015)
+# Fixed 4L handling (7/27/2015)
+# Adjusted Warbands filter, added block for 4Ls, adjusted aura handling, added alert sounds to midtier currency, adjusted some font sizes (7/25/2015)
+# Added Portal, now shows all magic items (shrunk) by default for Warbands (7/13/2015)
+# Font size changes, small refinement to recipe highlighting, added support for Filtration themes (7/2/2015)
+# Minor color changes (6/26/2015)
+# Added Filtration support, tweaked hybrid flask handling (6/15/2015)
+# Minor fixes, slightly altered life vs mana flask border color, added Divination Card support (6/15/2015)
+# Updated Maraketh weapon bases (6/12/2015)
+# Updated Maraketh weapon bases; dim/shrink hidden items for less clutter when highlight is pressed (5/22/2015)
+# Added block for chance base highlighting (5/5/2015)
+# Adjusted chaos/regal recipe handling to exclude 1H weapons, shields, and quivers; shrunk normal/magic accessories (5/3/2015)
+# Added alpha values to the dimmed items, increased font size on some items, tweaked level ranges for hiding items (5/2/2015)
+# Maximized volume on alert sounds, tweaked high-end currency alert (5/1/2015)
+# Refined flask and quiver handling (4/30/2015)
+
+# Section: Currency
+
+# Add a currency-colored border to midtier currency
+Show # Currency - Mid
+    BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb"
+    SetBorderColor 170 158 130 # Uncommon currency
+    SetFontSize 38
+	PlayAlertSound 3 300
+
+# Add a unique border and sound to high-end currency (AlertSound5)
+Show # Currency - High
+    BaseType "Exalted" "Divine Orb" "Eternal Orb" "Mirror of" "Feather"
+    SetBorderColor 175 96 37 # Rare currency
+    SetFontSize 42
+    PlayAlertSound 5 300
+
+# Default handling of other currency
+Show # Currency - Low
+    Class "Currency"
+
+# Section: Maps, Uniques, Quest Items
+
+# Adjust font size of: uniques, maps (includes sacrifice fragments), quest items
+Show # Maps/Fragments
+    Class "Map"
+    SetFontSize 38
+
+Show # Quest Items
+    Class "Quest"
+    SetFontSize 38
+
+Show # Valuables - Uniques
+    Rarity = Unique
+    SetFontSize 42
+
+# Section: Flasks
+
+# Add a border to flasks that are near the current level or have 15%+ quality
+Show # Flasks - Utility
+    Class "Utility Flask"
+    SetBorderColor 88 0 179 # Utility/Hybrid/Quality flask
+
+Show # Flasks - Quality
+    Quality >= 10
+    Class "Flask"
+    SetBorderColor 88 0 179 # Utility/Hybrid/Quality flask
+
+Show # Flasks - Hybrid - Hallowed
+    BaseType "Hallowed Hybrid Flask"
+    ItemLevel < 68
+    SetBorderColor 88 0 179 # Utility/Hybrid/Quality flask
+
+Hide # Flasks - Hybrid - Other
+    Class "Hybrid Flask"
+    SetTextColor 150 150 150 180 # Dim white
+    SetBackgroundColor 0 0 0 127 # Dim background
+
+Show # Flasks - Mana - ilvl < 15
+    ItemLevel < 15
+    Class "Mana Flask"
+    SetBorderColor 88 0 222 # Mana flask
+
+Show # Flasks - Life - ilvl < 15
+    ItemLevel < 15
+    Class "Life Flask"
+    SetBorderColor 83 0 110 # Life flask
+
+Show # Flasks - Mana - ilvl < 26
+    ItemLevel < 26
+    DropLevel > 10
+    Class "Mana Flask"
+    SetBorderColor 88 0 222 # Mana flask
+
+Show # Flasks - Life - ilvl < 26
+    ItemLevel < 26
+    DropLevel > 10
+    Class "Life Flask"
+    SetBorderColor 83 0 110 # Life flask
+
+Show # Flasks - Mana - ilvl < 34
+    ItemLevel < 34
+    DropLevel > 22
+    Class "Mana Flask"
+    SetBorderColor 88 0 222 # Mana flask
+
+Show # Flasks - Life - ilvl < 34
+    ItemLevel < 34
+    DropLevel > 22
+    Class "Life Flask"
+    SetBorderColor 83 0 110 # Life flask
+
+Show # Flasks - Mana - ilvl < 43
+    ItemLevel < 43
+    DropLevel > 34
+    Class "Mana Flask"
+    SetBorderColor 88 0 222 # Mana flask
+
+Show # Flasks - Life - ilvl < 43
+    ItemLevel < 43
+    DropLevel > 34
+    Class "Life Flask"
+    SetBorderColor 83 0 110 # Life flask
+
+Show # Flasks - Mana - ilvl < 55
+    ItemLevel < 55
+    DropLevel > 40
+    Class "Mana Flask"
+    SetBorderColor 88 0 222 # Mana flask
+
+Show # Flasks - Life - ilvl < 55
+    ItemLevel < 55
+    DropLevel > 40
+    Class "Life Flask"
+    SetBorderColor 83 0 110 # Life flask
+
+Show # Flasks - Mana - Divine+ - (under 70)
+    DropLevel > 58
+    ItemLevel < 70
+    Class "Mana Flask"
+    SetBorderColor 88 0 222 # Mana flask
+
+Show # Flasks - Life - Divine+ - (under 70)
+    DropLevel > 58
+    ItemLevel < 70
+    Class "Life Flask"
+    SetBorderColor 83 0 110 # Life flask
+
+Show # Flasks - Mana - Divine+ - (over 70)
+    DropLevel > 58
+    Class "Mana Flask"
+    SetFontSize 25
+
+Show # Flasks - Life - Divine+ - (over 70)
+    DropLevel > 58
+    Class "Life Flask"
+    SetFontSize 25
+
+# Section: Special Items
+
+# Add a red border and sound to special items: fishing rods, jewels (AlertSound7)
+Show # Valuables - Fishing Rods, Jewels, Div Cards
+    Class "Fishing Rod" "Jewel" "Divination Card"
+    SetBorderColor 150 0 0 # Special drops
+    SetFontSize 42
+    PlayAlertSound 7 300
+
+# Section: Links and Sockets
+
+# Add a grey border and sound to 6s/5l/6l items (AlertSound2)
+Show # Valuables - 5/6L
+    LinkedSockets >= 5
+    SetBorderColor 127 127 127 # 6S/5L/6L border
+    SetBackgroundColor 0 0 0 255 # Contrast background
+    SetFontSize 42
+    PlayAlertSound 2 300
+
+Show # Valuables - 6S
+    Sockets = 6
+    SetBorderColor 127 127 127 # 6S/5L/6L border
+    SetBackgroundColor 0 0 0 255 # Contrast background
+    SetFontSize 42
+    PlayAlertSound 2 300
+
+# Slightly lighten white/magic RGB items a la Antnee
+Show # Valuables - RGB Items
+    Rarity = Normal
+    SocketGroup "RGB"
+    SetTextColor 255 255 255 # RGB whites
+    SetBackgroundColor 0 0 0 255 # Contrast background
+    SetFontSize 38
+
+Show # Valuables - RGB Items
+    Rarity = Magic
+    SocketGroup "RGB"
+    SetTextColor 125 175 255 # RGB blues
+    SetBackgroundColor 0 0 0 255 # Contrast background
+    SetFontSize 38
+
+# Section: Regal Recipe
+
+# Add a light blue border to regal recipe rares
+Show # Rares - 75+ - Nonrecipe
+    ItemLevel >= 75
+    Rarity = Rare
+    Class "Shields" "One Hand" "Quivers" "Claws" "Daggers" "Wands"
+
+Show # Rares - 75+ - Regal recipe - Quality & Jewelry
+    ItemLevel >= 75
+    Rarity = Rare
+    Class "Rings" "Amulets" "Belts"
+    SetBorderColor 136 136 255 # Regal recipe bright
+
+Show # Rares - 75+ - Regal recipe - Quality & Jewelry
+    ItemLevel >= 75
+    Rarity = Rare
+    Quality > 15
+    SetBorderColor 136 136 255 # Regal recipe bright
+
+Show # Rares - 75+ - Regal recipe
+    ItemLevel >= 75
+    Rarity = Rare
+    SetBorderColor 136 136 255 200 # Regal recipe faint
+
+# Section: Chaos Recipe
+
+# Add a yellow border to chaos recipe rares
+Show # Rares - 60+ - Nonrecipe
+    ItemLevel >= 60
+    Rarity = Rare
+    Class "Shields" "One Hand" "Quivers" "Claws" "Daggers" "Wands" "Sceptres"
+
+Show # Rares - 60+ - Chaos recipe - Quality & Jewelry
+    ItemLevel >= 60
+    Rarity = Rare
+    Class "Rings" "Amulets" "Belts"
+    SetBorderColor 254 170 0 # Chaos recipe bright
+
+Show # Rares - 60+ - Chaos recipe - Quality & Jewelry
+    ItemLevel >= 60
+    Rarity = Rare
+    Quality > 15
+    SetBorderColor 254 170 0 # Chaos recipe bright
+
+Show # Rares - 60+ - Chaos recipe
+    ItemLevel >= 60
+    Rarity = Rare
+    SetBorderColor 254 170 0 127 # Chaos recipe faint
+
+# Section: Gems
+
+# Slightly enlarge and add a teal border to quality gems as well as Empower etc.; shrink all other gems slightly; slightly dim active gems.
+Show # Gems - Quality
+    Quality > 0
+    Class "Gem"
+    SetBorderColor 54 100 146 # Valuable/quality gems
+    SetFontSize 38
+
+Show # Gems - Valuable
+    Class "Gem"
+    BaseType "Empower" "Enhance" "Enlighten" "Portal"
+    SetBorderColor 54 100 146 # Valuable/quality gems
+    SetFontSize 38
+
+Show # Gems - Vaal
+    Class "Gem"
+    BaseType "Vaal"
+    SetBorderColor 150 0 0 # Vaal gems
+    SetFontSize 38
+
+Show # Gems - Support
+    Class "Support"
+    SetFontSize 35
+
+Show # Gems - Active - Aura/Buff
+    Class "Active"
+    BaseType "Wrath" "Anger" "Hatred" "Clarity" "Determination" "Grace" "Discipline" "Vitality" "Haste" "Purity of" "Herald of" "Arctic Armour" 
+    SetFontSize 35
+	
+Show # Gems - Active - Other
+    Class "Active"
+    SetFontSize 25
+
+# Section: Base Items
+
+# Add a dark green border to normal items of desired chance bases
+Show # Bases - Chance
+    Rarity = Normal
+    BaseType "Occultist's" "Judgement Staff" "Agate Amulet" "Imperial Bow"
+    SetBorderColor 0 73 0 # Chance bases
+
+# Add a teal border to ilvl 77+ items of desired bases
+Show # Bases - 77+ crafting
+    ItemLevel >= 77
+    Rarity = Normal
+    BaseType "Gold"
+    Class "Amulets" "Rings"
+    SetBorderColor 54 100 146 # Crafting white bases
+
+# Section: Rares
+
+# Show all rares not covered above (safeguard)
+Show # Rares - Other
+    Rarity = Rare
+
+# Section: Other Items (accessories, chisel hammers, Maraketh weapons, Sacrificial Garb)
+
+# Always show potential Warbands blues, Maraketh weapons (capped by level), accessories (reduced size), hammers (white or magic 12%), and sacrificial garbs
+Show # Warbands - All Magic Boots/Gloves/Helms
+    Rarity = Magic
+	Class Boots Gloves Helmets
+    SetFontSize 25
+
+Show # Warbands - Magic Weapons
+	Rarity = Magic
+	ItemLevel >= 70
+	Class Claws Daggers Wands Swords Axes Maces Bows Staves Sceptres
+	SetFontSize 25
+
+Show # Jewelry
+    Rarity <= Magic
+    Class "Amulet" "Ring" "Belt"
+    SetFontSize 25
+
+Show # Chisel Hammers
+    Rarity = Normal
+    BaseType "Stone Hammer" "Rock Breaker" "Gavel"
+
+Show # Chisel Hammers
+    Quality >= 12
+    Rarity = Magic
+    BaseType "Stone Hammer" "Rock Breaker" "Gavel"
+
+Show # Valuables - Sacrificial Garb
+    BaseType "Sacrificial Garb"
+
+Show # Maraketh Weapons - Normal
+    ItemLevel < 50
+    BaseType "Reflex Bow" "Crescent Staff" "Curved Blade" "Morning Star" "Dagger Axe" "Smallsword" "Horned Sceptre" "Etched Hatchet" "Hook Sword" "Wyrm Mace" "Prong Dagger" "Pagan Wand" "Double Claw"
+    SetFontSize 25
+
+Show # Maraketh Weapons - Cruel
+    ItemLevel < 70
+    BaseType "Steelwood Bow" "Moon Staff" "Lithe Blade" "Solar Maul" "Talon Axe" "Courtesan Sword" "Stag Sceptre" "Engraved Hatchet" "Grappler" "Dragon Mace" "Trisula" "Heathen Wand" "Twin Claw"
+    SetFontSize 25
+
+Show # Maraketh Weapons - Merciless
+    BaseType "Maraketh Bow" "Eclipse Staff" "Exquisite Blade" "Coronal Maul" "Fleshripper" "Dragoon Sword" "Sambar Sceptre" "Runic Hatchet" "Tiger Hook" "Behemoth Mace" "Profane Wand" "Gemini Claw"
+    SetFontSize 25
+
+Show # Maraketh Weapons - Merciless
+    Class "Daggers"
+    BaseType "Sai"
+    SetFontSize 25
+	
+#Highlight 4L items below level 50
+Show # Valuables - 4L
+    LinkedSockets = 4
+	ItemLevel < 50
+    SetBackgroundColor 0 0 0 255 # Contrast background
+	
+# Section: Cleanup (shrinking)
+
+Show # Trash - Normal
+    Rarity = Normal
+    SetFontSize 25
+
+Show # Trash - Magic
+    Rarity = Magic
+    SetFontSize 25
