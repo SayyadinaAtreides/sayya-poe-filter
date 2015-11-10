@@ -3,7 +3,7 @@
 # 
 # Changelog:
 # 
-# Defaulted Warbands to hiding with borders on alt; added sound to map drops (11/9/2015)
+# Defaulted Warbands to hiding with borders on alt; added sound to map drops; added Detonate Mines to special gems (11/9/2015)
 # Adjusted currency tiers, tweaked regal recipe (8/8/2015)
 # Added handling for chaos Warbands weapons (show magic weapons of ilvl 70+) (8/1/2015)
 # Adjusted PlayAlertSound volumes (8/1/2015)
@@ -262,7 +262,7 @@ Show # Gems - Quality
 
 Show # Gems - Valuable
     Class "Gem"
-    BaseType "Empower" "Enhance" "Enlighten" "Portal"
+    BaseType "Empower" "Enhance" "Enlighten" "Portal" "Detonate Mines"
     SetBorderColor 54 100 146 # Valuable/quality gems
     SetFontSize 38
 
