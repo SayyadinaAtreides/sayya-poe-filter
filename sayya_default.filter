@@ -1,8 +1,9 @@
 # Script edited with Filtration - https://github.com/ben-wallis/Filtration
-# Sayya's item filter, v. 1.34 (8/8/2015)
+# Sayya's item filter, v. 1.4 (11/9/2015)
 # 
 # Changelog:
 # 
+# Defaulted Warbands to hiding with borders on alt; added sound to map drops (11/9/2015)
 # Adjusted currency tiers, tweaked regal recipe (8/8/2015)
 # Added handling for chaos Warbands weapons (show magic weapons of ilvl 70+) (8/1/2015)
 # Adjusted PlayAlertSound volumes (8/1/2015)
@@ -46,6 +47,7 @@ Show # Currency - Low
 # Adjust font size of: uniques, maps (includes sacrifice fragments), quest items
 Show # Maps/Fragments
     Class "Map"
+	PlayAlertSound 6 300
     SetFontSize 38
 
 Show # Quest Items
@@ -307,18 +309,7 @@ Show # Rares - Other
 
 # Section: Other Items (accessories, chisel hammers, Maraketh weapons, Sacrificial Garb)
 
-# Always show potential Warbands blues, Maraketh weapons (capped by level), accessories (reduced size), hammers (white or magic 12%), and sacrificial garbs
-Show # Warbands - All Magic Boots/Gloves/Helms
-    Rarity = Magic
-	Class Boots Gloves Helmets
-    SetFontSize 25
-
-Show # Warbands - Magic Weapons
-	Rarity = Magic
-	ItemLevel >= 70
-	Class Claws Daggers Wands Swords Axes Maces Bows Staves Sceptres
-	SetFontSize 25
-
+# Always show Maraketh weapons (capped by level), accessories (reduced size), hammers (white or magic 12%), and sacrificial garbs
 Show # Jewelry
     Rarity <= Magic
     Class "Amulet" "Ring" "Belt"
@@ -365,6 +356,19 @@ Show # Valuables - 4L
 	
 # Section: Cleanup (hiding)
 
+#Show Warbands bases with borders on alt
+Hide # Warbands - All Magic Boots/Gloves/Helms
+    Rarity = Magic
+	Class Boots Gloves Helmets
+    SetFontSize 34
+	SetBorderColor 54 100 146
+
+Hide # Warbands - Magic Weapons
+	Rarity = Magic
+	ItemLevel >= 70
+	Class Claws Daggers Wands Swords Axes Maces Bows Staves Sceptres
+	SetFontSize 34
+	SetBorderColor 54 100 146
 # Hide white and magic items with a substantial gap between drop and item level (REMOVE FROM HERE UNTIL NEXT COMMENT if you want nothing hidden)
 Hide # Trash - Low Base
     ItemLevel >= 20
