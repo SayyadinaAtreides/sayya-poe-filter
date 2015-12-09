@@ -3,6 +3,7 @@
 # 
 # Changelog:
 # 
+# Added support for Talisman (12/9/2015)
 # Defaulted Warbands to hiding with borders on alt; added sound to map drops; added Detonate Mines to special gems (11/9/2015)
 # Adjusted currency tiers, tweaked regal recipe (8/8/2015)
 # Added handling for chaos Warbands weapons (show magic weapons of ilvl 70+) (8/1/2015)
@@ -162,7 +163,14 @@ Show # Flasks - Life - Divine+ - (over 70)
 
 # Section: Special Items
 
-# Add a red border and sound to special items: fishing rods, jewels (AlertSound7)
+# Add border and sound to special items: fishing rods, jewels, div cards, talismans
+Show # Valuables - Talismans
+    Class "Amulet"
+	BaseType "Talisman"
+	SetBorderColor 161 245 185 # Talisman
+	SetFontSize 42
+	PlayAlertSound 1 300
+
 Show # Valuables - Fishing Rods, Jewels, Div Cards
     Class "Fishing Rod" "Jewel" "Divination Card"
     SetBorderColor 150 0 0 # Special drops
