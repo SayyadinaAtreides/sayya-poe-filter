@@ -1,8 +1,8 @@
-# Script edited with Filtration - https://github.com/ben-wallis/Filtration
-# Sayya's item filter, v. 1.5 (12/9/2015)
+# Sayya's item filter, v. 1.6 (3/2/2016)
 # 
 # Changelog:
 # 
+# Added support for Perandus (3/2/2016)
 # Added support for Talisman (12/9/2015)
 # Defaulted Warbands to hiding with borders on alt; added sound to map drops; added Detonate Mines to special gems (11/9/2015)
 # Adjusted currency tiers, tweaked regal recipe (8/8/2015)
@@ -27,7 +27,7 @@
 
 # Add a currency-colored border to midtier currency
 Show # Currency - Mid
-    BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring"
+    BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
 	PlayAlertSound 3 300

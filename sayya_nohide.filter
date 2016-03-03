@@ -1,8 +1,8 @@
-# Script edited with Filtration - https://github.com/ben-wallis/Filtration
-# Sayya's item filter, no-hide version, v. 1.5 (12/9/2015)
+# Sayya's item filter, no-hide version, v. 1.6 (3/2/2016)
 # 
 # Changelog:
 # 
+# Added support for Perandus (3/2/2016)
 # Added support for Talisman (12/9/2015)
 # Adjusted currency tiers, tweaked regal recipe (8/8/2015)
 # Created filter version that hides/dims nothing (8/4/2015)
