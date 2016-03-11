@@ -1,7 +1,8 @@
-# Sayya's item filter, no-hide version, v. 1.6 (3/2/2016)
+# Sayya's item filter, no-hide version, v. 1.7 (3/11/2016)
 # 
 # Changelog:
 # 
+# Added Labyrinth keys (3/11/2016)
 # Added support for Perandus (3/2/2016)
 # Added support for Talisman (12/9/2015)
 # Adjusted currency tiers, tweaked regal recipe (8/8/2015)
@@ -27,7 +28,7 @@
 
 # Add a currency-colored border to midtier currency
 Show # Currency - Mid
-    BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring"
+    BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Key" "Treasure Key" "Golden Key"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
 	PlayAlertSound 3 300
