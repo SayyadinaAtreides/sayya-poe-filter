@@ -177,10 +177,10 @@ Show # Flasks - Life - Divine+ - (over 70)
 # Add border and sound to special items: fishing rods, jewels, div cards, talismans
 Show # Valuables - Talismans
     Class "Amulet"
-	BaseType "Talisman"
-	SetBorderColor 161 245 185 # Talisman
-	SetFontSize 42
-	PlayAlertSound 1 300
+    BaseType "Talisman"
+    SetBorderColor 161 245 185 # Talisman
+    SetFontSize 42
+    PlayAlertSound 1 300
 
 Show # Valuables - Fishing Rods, Jewels, Div Cards
     Class "Fishing Rod" "Jewel" "Divination Card"
@@ -299,7 +299,7 @@ Show # Gems - Active - Aura/Buff
     Class "Active"
     BaseType "Wrath" "Anger" "Hatred" "Clarity" "Determination" "Grace" "Discipline" "Vitality" "Haste" "Purity of" "Herald of" "Arctic Armour" 
     SetFontSize 35
-	
+
 Show # Gems - Active - Other
     Class "Active"
     SetFontSize 25
@@ -365,29 +365,28 @@ Show # Maraketh Weapons - Merciless
     BaseType "Sai"
     SetFontSize 25
 
-
-	
 #Highlight 4L items below level 50
 Show # Valuables - 4L
     LinkedSockets = 4
-	ItemLevel < 50
+    ItemLevel < 50
     SetBackgroundColor 0 0 0 255 # Contrast background
-	
+
 # Section: Cleanup (hiding)
 
 #Show Warbands bases with borders on alt
 Hide # Warbands - All Magic Boots/Gloves/Helms
     Rarity = Magic
-	Class Boots Gloves Helmets
+    Class Boots Gloves Helmets
     SetFontSize 34
-	SetBorderColor 54 100 146
+    SetBorderColor 54 100 146
 
 Hide # Warbands - Magic Weapons
-	Rarity = Magic
-	ItemLevel >= 70
-	Class Claws Daggers Wands Swords Axes Maces Bows Staves Sceptres
-	SetFontSize 34
-	SetBorderColor 54 100 146
+    Rarity = Magic
+    ItemLevel >= 70
+    Class Claws Daggers Wands Swords Axes Maces Bows Staves Sceptres
+    SetFontSize 34
+    SetBorderColor 54 100 146
+
 # Hide white and magic items with a substantial gap between drop and item level (REMOVE FROM HERE UNTIL NEXT COMMENT if you want nothing hidden)
 Hide # Trash - Low Base
     ItemLevel >= 20

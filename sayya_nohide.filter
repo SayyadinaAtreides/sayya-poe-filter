@@ -176,11 +176,11 @@ Show # Flasks - Life - Divine+ - (over 70)
 # Add border and sound to special items: fishing rods, jewels, div cards, talismans
 Show # Valuables - Talismans
     Class "Amulet"
-	BaseType "Talisman"
-	SetBorderColor 161 245 185 # Talisman
-	SetFontSize 42
-	PlayAlertSound 1 300
-	
+    BaseType "Talisman"
+    SetBorderColor 161 245 185 # Talisman
+    SetFontSize 42
+    PlayAlertSound 1 300
+
 Show # Valuables - Fishing Rods, Jewels, Div Cards
     Class "Fishing Rod" "Jewel" "Divination Card"
     SetBorderColor 150 0 0 # Special drops
@@ -298,7 +298,7 @@ Show # Gems - Active - Aura/Buff
     Class "Active"
     BaseType "Wrath" "Anger" "Hatred" "Clarity" "Determination" "Grace" "Discipline" "Vitality" "Haste" "Purity of" "Herald of" "Arctic Armour" 
     SetFontSize 35
-	
+
 Show # Gems - Active - Other
     Class "Active"
     SetFontSize 25
@@ -330,14 +330,14 @@ Show # Rares - Other
 # Always show potential Warbands blues, Maraketh weapons (capped by level), accessories (reduced size), hammers (white or magic 12%), and sacrificial garbs
 Show # Warbands - All Magic Boots/Gloves/Helms
     Rarity = Magic
-	Class Boots Gloves Helmets
+    Class Boots Gloves Helmets
     SetFontSize 25
 
 Show # Warbands - Magic Weapons
-	Rarity = Magic
-	ItemLevel >= 70
-	Class Claws Daggers Wands Swords Axes Maces Bows Staves Sceptres
-	SetFontSize 25
+    Rarity = Magic
+    ItemLevel >= 70
+    Class Claws Daggers Wands Swords Axes Maces Bows Staves Sceptres
+    SetFontSize 25
 
 Show # Jewelry
     Rarity <= Magic
@@ -374,13 +374,13 @@ Show # Maraketh Weapons - Merciless
     Class "Daggers"
     BaseType "Sai"
     SetFontSize 25
-	
+
 #Highlight 4L items below level 50
 Show # Valuables - 4L
     LinkedSockets = 4
-	ItemLevel < 50
+    ItemLevel < 50
     SetBackgroundColor 0 0 0 255 # Contrast background
-	
+
 # Section: Cleanup (shrinking)
 
 Show # Trash - Normal
