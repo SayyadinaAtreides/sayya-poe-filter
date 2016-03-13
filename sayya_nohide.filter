@@ -1,8 +1,8 @@
-# Sayya's item filter, no-hide version, v. 1.7 (3/11/2016)
+# Sayya's item filter, no-hide version, v. 1.7 (3/12/2016)
 # 
 # Changelog:
 # 
-# Added Labyrinth keys (3/11/2016)
+# Added support for Labyrinth (3/12/2016)
 # Added support for Perandus (3/2/2016)
 # Added support for Talisman (12/9/2015)
 # Adjusted currency tiers, tweaked regal recipe (8/8/2015)
@@ -28,10 +28,10 @@
 
 # Add a currency-colored border to midtier currency
 Show # Currency - Mid
-    BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Key" "Treasure Key" "Golden Key"
+    BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
-	PlayAlertSound 3 300
+    PlayAlertSound 3 300
 
 # Add a unique border and sound to high-end currency (AlertSound5)
 Show # Currency - High
@@ -44,7 +44,7 @@ Show # Currency - High
 Show # Currency - Low
     Class "Currency"
 
-# Section: Maps, Uniques, Quest Items
+# Section: Maps, Uniques, Quest Items, Labyrinth Items
 
 # Adjust font size of: uniques, maps (includes sacrifice fragments), quest items
 Show # Maps/Fragments
@@ -58,6 +58,16 @@ Show # Quest Items
 Show # Valuables - Uniques
     Rarity = Unique
     SetFontSize 42
+
+Show # Labyrinth Boss Encounter Items
+    BaseType "Sand of Eternity" "Orb of Elemental Essence" "Rod of Detonation" "Cube Of Absorption" "Bane of the Loyal" "Heart of the Gargoyle" "Cogs of Disruption" "Portal Shredder"
+    SetFontSize 38
+
+Show # Labyrinth Currency Items
+    BaseType "Silver Key" "Treasure Key" "Golden Key"
+    SetBorderColor 170 158 130 # Uncommon currency
+    SetFontSize 38
+    PlayAlertSound 3 300
 
 # Section: Flasks
 
