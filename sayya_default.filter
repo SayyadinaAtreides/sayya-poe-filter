@@ -56,7 +56,7 @@ Show # Quest Items
     Class "Quest"
     SetFontSize 38
 
-Show # Labyrinth Boss Encounter Items
+Show # Labyrinth Trinkets
     BaseType "Sand of Eternity" "Orb of Elemental Essence" "Rod of Detonation" "Cube Of Absorption" "Bane of the Loyal" "Heart of the Gargoyle" "Cogs of Disruption" "Portal Shredder"
     SetFontSize 38
 
