@@ -1,7 +1,8 @@
-# Sayya's item filter, no-hide version, v. 1.6 (3/2/2016)
+# Sayya's item filter, no-hide version, v. 1.7 (3/12/2016)
 # 
 # Changelog:
 # 
+# Added support for Labyrinth (3/12/2016)
 # Added support for Perandus (3/2/2016)
 # Added support for Talisman (12/9/2015)
 # Adjusted currency tiers, tweaked regal recipe (8/8/2015)
@@ -27,10 +28,10 @@
 
 # Add a currency-colored border to midtier currency
 Show # Currency - Mid
-    BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring"
+    BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
-	PlayAlertSound 3 300
+    PlayAlertSound 3 300
 
 # Add a unique border and sound to high-end currency (AlertSound5)
 Show # Currency - High
@@ -43,7 +44,7 @@ Show # Currency - High
 Show # Currency - Low
     Class "Currency"
 
-# Section: Maps, Uniques, Quest Items
+# Section: Maps, Uniques, Quest Items, Labyrinth Items
 
 # Adjust font size of: uniques, maps (includes sacrifice fragments), quest items
 Show # Maps/Fragments
@@ -57,6 +58,16 @@ Show # Quest Items
 Show # Valuables - Uniques
     Rarity = Unique
     SetFontSize 42
+
+Show # Labyrinth Trinkets
+    BaseType "Sand of Eternity" "Orb of Elemental Essence" "Rod of Detonation" "Cube Of Absorption" "Bane of the Loyal" "Heart of the Gargoyle" "Cogs of Disruption" "Portal Shredder"
+    SetFontSize 38
+
+Show # Labyrinth Currency Items
+    BaseType "Silver Key" "Treasure Key" "Golden Key"
+    SetBorderColor 170 158 130 # Uncommon currency
+    SetFontSize 38
+    PlayAlertSound 3 300
 
 # Section: Flasks
 
@@ -165,11 +176,11 @@ Show # Flasks - Life - Divine+ - (over 70)
 # Add border and sound to special items: fishing rods, jewels, div cards, talismans
 Show # Valuables - Talismans
     Class "Amulet"
-	BaseType "Talisman"
-	SetBorderColor 161 245 185 # Talisman
-	SetFontSize 42
-	PlayAlertSound 1 300
-	
+    BaseType "Talisman"
+    SetBorderColor 161 245 185 # Talisman
+    SetFontSize 42
+    PlayAlertSound 1 300
+
 Show # Valuables - Fishing Rods, Jewels, Div Cards
     Class "Fishing Rod" "Jewel" "Divination Card"
     SetBorderColor 150 0 0 # Special drops
@@ -287,7 +298,7 @@ Show # Gems - Active - Aura/Buff
     Class "Active"
     BaseType "Wrath" "Anger" "Hatred" "Clarity" "Determination" "Grace" "Discipline" "Vitality" "Haste" "Purity of" "Herald of" "Arctic Armour" 
     SetFontSize 35
-	
+
 Show # Gems - Active - Other
     Class "Active"
     SetFontSize 25
@@ -319,14 +330,14 @@ Show # Rares - Other
 # Always show potential Warbands blues, Maraketh weapons (capped by level), accessories (reduced size), hammers (white or magic 12%), and sacrificial garbs
 Show # Warbands - All Magic Boots/Gloves/Helms
     Rarity = Magic
-	Class Boots Gloves Helmets
+    Class Boots Gloves Helmets
     SetFontSize 25
 
 Show # Warbands - Magic Weapons
-	Rarity = Magic
-	ItemLevel >= 70
-	Class Claws Daggers Wands Swords Axes Maces Bows Staves Sceptres
-	SetFontSize 25
+    Rarity = Magic
+    ItemLevel >= 70
+    Class Claws Daggers Wands Swords Axes Maces Bows Staves Sceptres
+    SetFontSize 25
 
 Show # Jewelry
     Rarity <= Magic
@@ -363,13 +374,13 @@ Show # Maraketh Weapons - Merciless
     Class "Daggers"
     BaseType "Sai"
     SetFontSize 25
-	
+
 #Highlight 4L items below level 50
 Show # Valuables - 4L
     LinkedSockets = 4
-	ItemLevel < 50
+    ItemLevel < 50
     SetBackgroundColor 0 0 0 255 # Contrast background
-	
+
 # Section: Cleanup (shrinking)
 
 Show # Trash - Normal
