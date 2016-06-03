@@ -1,7 +1,8 @@
-# Sayya's item filter, v. 1.6 (3/2/2016)
+# Sayya's item filter, v. 1.7 (6/3/2016)
 # 
 # Changelog:
 # 
+# Added support for Prophecy, edited lab item handling (6/3/2016)
 # Added support for Perandus (3/2/2016)
 # Added support for Talisman (12/9/2015)
 # Defaulted Warbands to hiding with borders on alt; added sound to map drops; added Detonate Mines to special gems (11/9/2015)
@@ -27,7 +28,7 @@
 
 # Add a currency-colored border to midtier currency
 Show # Currency - Mid
-    BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin"
+    BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
 	PlayAlertSound 3 300
@@ -43,9 +44,9 @@ Show # Currency - High
 Show # Currency - Low
     Class "Currency"
 
-# Section: Maps, Uniques, Quest Items
+# Section: Maps, Uniques, Quest Items, Lab
 
-# Adjust font size of: uniques, maps (includes sacrifice fragments), quest items
+# Adjust font size of: uniques, maps (includes fragments, such as sacrifice/prophecy fragments), quest items
 Show # Maps/Fragments
     Class "Map"
 	PlayAlertSound 6 300
@@ -58,6 +59,15 @@ Show # Quest Items
 Show # Valuables - Uniques
     Rarity = Unique
     SetFontSize 42
+	
+Show # Labyrinth - Trinkets
+	BaseType "Sand of Eternity" "Orb of Elemental Essence" "Rod of Detonation" "Cube Of Absorption" "Bane of the Loyal" "Heart of the Gargoyle" "Cogs of Disruption" "Portal Shredder"
+	SetFontSize 38
+
+Show # Labyrinth - Keys
+	BaseType "Silver Key" "Treasure Key" "Golden Key"
+	SetFontSize 38
+	PlayAlertSound 3 300 
 
 # Section: Flasks
 
