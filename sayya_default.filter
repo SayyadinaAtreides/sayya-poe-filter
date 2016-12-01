@@ -1,7 +1,9 @@
-# Sayya's item filter, v. 1.71 (6/5/2016)
+# Sayya's item filter, v. 2.1 (11/30/2016)
 # 
 # Changelog:
 # 
+# Added Breach support (11/30/2016)
+# Added Essence support; added new base items; adjusted chance bases (11/4/2016)
 # Fixed a bug with Prophecy Wands displaying as currency (6/5/2016)
 # Added support for Prophecy, edited lab item handling (6/3/2016)
 # Added support for Perandus (3/2/2016)
@@ -30,7 +32,7 @@
 # Add a currency-colored border to midtier currency
 Show # Currency - Mid
     Class "Currency"
-    BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb"
+    BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
 	PlayAlertSound 3 300
@@ -181,14 +183,19 @@ Show # Valuables - Talismans
     Class "Amulet"
 	BaseType "Talisman"
 	SetBorderColor 161 245 185 # Talisman
-	SetFontSize 42
+	SetFontSize 38
 	PlayAlertSound 1 300
 
 Show # Valuables - Fishing Rods, Jewels, Div Cards
     Class "Fishing Rod" "Jewel" "Divination Card"
     SetBorderColor 150 0 0 # Special drops
-    SetFontSize 42
+    SetFontSize 38
     PlayAlertSound 7 300
+	
+Show # Valuables - Atlas Bases and Breach Rings
+	BaseType "Blue Pearl" "Bone Helmet" "Crystal Belt" "Fingerless" "Gripped" "Marble Amulet" "Opal Ring" "Spiked Gloves" "Steel Ring" "Two-Toned" "Vanguard Belt" "Breach Ring"
+	SetFontSize 38
+	SetBorderColor 54 140 146
 
 # Section: Links and Sockets
 
@@ -308,20 +315,38 @@ Show # Gems - Active - Other
 
 # Section: Base Items
 
+# Add a teal border to ilvl 83+ weapons or 84+ other items of desired bases
+Show # Bases - 83+ weapon crafting Maraketh
+    ItemLevel >= 83
+    Rarity = Normal
+    BaseType "Maraketh Bow" "Eclipse Staff" "Exquisite Blade" "Coronal Maul" "Fleshripper" "Dragoon Sword" "Sambar Sceptre" "Runic Hatchet" "Tiger Hook" "Behemoth Mace" "Profane Wand" "Gemini Claw"
+    SetBorderColor 54 100 146 # Crafting bases
+
+Show # Bases - 83+ weapon crafting other
+    ItemLevel >= 83
+    Rarity = Normal
+	BaseType "Imbued Wand" "Vaal Axe" "Harbinger Bow" "Ambusher" "Platinum Kris" "Maelst" "Judgement Staff" "Void Sceptre" "Harpy Rapier" "Opal Wand"
+	SetBorderColor 54 100 146 # Crafting bases
+
+Show # Bases - 84+ armour crafting
+    ItemLevel >= 83
+    Rarity = Normal
+	BaseType "Carnal Armour" "Assassin's Garb" "Astral Plate" "Occultist's Vestment" "Saintly Chainmail" "Triumphant Lamellar" "Vaal Regalia" "Glorious Plate" "Zodiac Leather" "Slink Boots" "Titan Greaves" "Sorcerer Boots" "Slink Gloves" "Sorcerer Gloves" "Titan Gauntlets" "Lion Pelt" "Eternal Burgonet" "Hubris Circlet" "Pinnacle Tower Shield" "Imperial Buckler" "Titanium Spirit Shield" "Archon Kite Shield" 
+	SetBorderColor 54 100 146 # Crafting bases
+
+Show # Bases - 84+ accessory crafting
+    ItemLevel >= 83
+    Rarity = Normal	
+	Class "Amulet" "Ring" "Belt" "Quivers"
+	BaseType "Amber" "Jade" "Lapis" "Gold" "Onyx" "Citrine" "Turquoise" "Agate" "Leather" "Heavy Belt" "Rustic" "Sapphire" "Topaz" "Ruby" "Two-Stone" "Diamond" "Moonstone" "Broadhead" "Spike-Point"
+	SetBorderColor 54 100 146 # Crafting bases
+
 # Add a dark green border to normal items of desired chance bases
 Show # Bases - Chance
     Rarity = Normal
-    BaseType "Occultist's" "Judgement Staff" "Agate Amulet" "Imperial Bow"
+    BaseType "Agate Amulet" "Leather Belt" "Sorcerer Boots" "Prophecy Wand" "Occultist's Vestment" "Jewelled Foil"
     SetBorderColor 0 73 0 # Chance bases
-
-# Add a teal border to ilvl 77+ items of desired bases
-Show # Bases - 77+ crafting
-    ItemLevel >= 77
-    Rarity = Normal
-    BaseType "Gold"
-    Class "Amulets" "Rings"
-    SetBorderColor 54 100 146 # Crafting white bases
-
+		
 # Section: Rares
 
 # Show all rares not covered above (safeguard)
