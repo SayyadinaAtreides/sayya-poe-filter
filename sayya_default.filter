@@ -1,7 +1,8 @@
-# Sayya's item filter, v. 2.2 (3/1/2017)
+# Sayya's item filter, v. 2.21 (3/2/2017)
 # 
 # Changelog:
 # 
+# Updated list of drop-only gems (3/2/2017)
 # Adjusted the handling of potential Warbands items; added handling for other identified and corruped items; adjusted breach ring border; added support for Leaguestones and Relics; adjusted the handling of fishing rods; changed items dimmed/shrunk from ilvls 14-30 to be shrunk only and hidden entirely above 30 (3/1/2017)
 # Added Breach support (11/30/2016)
 # Added Essence support; added new base items; adjusted chance bases (11/4/2016)
@@ -333,7 +334,7 @@ Show # Gems - Quality
 
 Show # Gems - Valuable
     Class "Gem"
-    BaseType "Empower" "Enhance" "Enlighten" "Portal" "Detonate Mines"
+    BaseType "Empower" "Enhance" "Enlighten" "Portal" "Detonate Mines" "Added Chaos"
     SetBorderColor 54 100 146 # Valuable/quality gems
     SetFontSize 38
 

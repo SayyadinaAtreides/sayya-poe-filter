@@ -1,7 +1,8 @@
-# Sayya's item filter, v. 2.2 (3/1/2017)
+# Sayya's item filter, v. 2.21 (3/2/2017)
 # 
 # Changelog:
 # 
+# Updated list of drop-only gems (3/2/2017)
 # Redid the entire filter based on the 2.2 default filter, changing all hide blocks to shrink previously hidden items (3/1/2017)
 # Fixed a bug with Prophecy Wands displaying as currency (6/5/2016)
 # Added support for Prophecy, edited lab item handling (6/3/2016)
@@ -331,7 +332,7 @@ Show # Gems - Quality
 
 Show # Gems - Valuable
     Class "Gem"
-    BaseType "Empower" "Enhance" "Enlighten" "Portal" "Detonate Mines"
+    BaseType "Empower" "Enhance" "Enlighten" "Portal" "Detonate Mines" "Added Chaos"
     SetBorderColor 54 100 146 # Valuable/quality gems
     SetFontSize 38
 
