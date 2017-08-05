@@ -1,7 +1,8 @@
-# Sayya's item filter, v. 2.21 (3/2/2017)
+# Sayya's item filter, v. 2.3 (8/5/2017)
 # 
 # Changelog:
 # 
+# Added new currency types to the appropriate blocks; added minor handling for Item Classes Piece and Pantheon Soul (8/5/2017)
 # Updated list of drop-only gems (3/2/2017)
 # Adjusted the handling of potential Warbands items; added handling for other identified and corruped items; adjusted breach ring border; added support for Leaguestones and Relics; adjusted the handling of fishing rods; changed items dimmed/shrunk from ilvls 14-30 to be shrunk only and hidden entirely above 30 (3/1/2017)
 # Added Breach support (11/30/2016)
@@ -34,7 +35,7 @@
 # Add a currency-colored border to midtier currency
 Show # Currency - Mid
     Class "Currency"
-    BaseType "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of"
+    BaseType "Harbinger's" "Engineer's" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of" "Chaos Shard" "Regal Shard"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
 	PlayAlertSound 3 300
@@ -42,7 +43,7 @@ Show # Currency - Mid
 # Add a unique border and sound to high-end currency (AlertSound5)
 Show # Currency - High
     Class "Currency"
-    BaseType "Exalted" "Divine Orb" "Eternal Orb" "Mirror of" "Feather"
+    BaseType "Exalted" "Divine Orb" "Eternal Orb" "Mirror of" "Feather" "Mirror Shard"
     SetBorderColor 175 96 37 # Rare currency
     SetFontSize 42
     PlayAlertSound 5 300
@@ -51,7 +52,7 @@ Show # Currency - High
 Show # Currency - Low
     Class "Currency"
 
-# Section: Maps, Uniques, Quest Items, Lab
+# Section: Maps, Uniques, Quest Items, Lab, Pieces, Pantheon Souls
 
 # Adjust font size of: uniques, maps (includes fragments, breachstones, reliquary keys, and offerings), quest items, and labyrinth items
 Show # Maps/Fragments
@@ -66,6 +67,10 @@ Show # Quest Items
 Show # Valuables - Uniques and Relics
     Rarity > Rare
     SetFontSize 42
+    
+Show # Valuables - Pieces and Pantheon Souls
+    Class "Piece" "Pantheon Soul"
+    SetFontSize 38
 	
 Show # Labyrinth - Trinkets
 	BaseType "Orb of Elemental Dispersion" "Sand of Eternity" "Rod of Detonation" "Cube Of Absorption" "Bane of the Loyal" "Heart of the Gargoyle" "Cogs of Disruption" "Portal Shredder"
