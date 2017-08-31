@@ -1,7 +1,8 @@
-# Sayya's item filter, v. 2.3 (8/5/2017)
+# Sayya's item filter, v. 2.31 (8/30/2017)
 # 
 # Changelog:
 # 
+# Adjusted currency handling for items added in 3.0 (8/30/2017)
 # Added new currency types to the appropriate blocks; added minor handling for Item Classes Piece and Pantheon Soul (8/5/2017)
 # Updated list of drop-only gems (3/2/2017)
 # Adjusted the handling of potential Warbands items; added handling for other identified and corruped items; adjusted breach ring border; added support for Leaguestones and Relics; adjusted the handling of fishing rods; changed items dimmed/shrunk from ilvls 14-30 to be shrunk only and hidden entirely above 30 (3/1/2017)
@@ -35,7 +36,7 @@
 # Add a currency-colored border to midtier currency
 Show # Currency - Mid
     Class "Currency"
-    BaseType "Harbinger's" "Engineer's" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of" "Chaos Shard" "Regal Shard"
+    BaseType "Harbinger's" "Engineer's" "Binding" "Horizon" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of" "Chaos Shard" "Regal Shard"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
 	PlayAlertSound 3 300
