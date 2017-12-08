@@ -202,7 +202,7 @@ Show # Valuables - Leaguestones
 
 Show #Valuables - Abyss Jewels
 	Class "Abyss Jewel"
-	SetBorder 90 90 90 # Abyss
+	SetBorderColor 90 90 90 # Abyss
 	SetFontSize 38
 	PlayAlertSound 7 300
 
