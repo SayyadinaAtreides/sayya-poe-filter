@@ -1,7 +1,8 @@
-# Sayya's item filter, v. 2.31 (8/30/2017)
+# Sayya's item filter, v. 2.32 (12/08/2017)
 # 
 # Changelog:
 # 
+# Added Abyss league support; added flagging for Elder and Shaper items; moved Orbs of Annulment to mid-tier currency (12/08/2017)
 # Adjusted currency handling for items added in 3.0 (8/30/2017)
 # Added new currency types to the appropriate blocks; added minor handling for Item Classes Piece and Pantheon Soul (8/5/2017)
 # Updated list of drop-only gems (3/2/2017)
@@ -36,7 +37,7 @@
 # Add a currency-colored border to midtier currency
 Show # Currency - Mid
     Class "Currency"
-    BaseType "Harbinger's" "Engineer's" "Binding" "Horizon" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of" "Chaos Shard" "Regal Shard"
+    BaseType "Annulment" "Harbinger's" "Engineer's" "Binding" "Horizon" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of" "Chaos Shard" "Regal Shard"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
 	PlayAlertSound 3 300
@@ -198,6 +199,22 @@ Show # Valuables - Leaguestones
 	SetBorderColor 161 245 185 # Talisman/legacy
 	SetFontSize 38
 	PlayAlertSound 1 300
+	
+Show #Valuables - Stygian Vise
+	BaseType "Stygian Vise"
+	SetBorderColor 90 90 90 # Abyss
+	
+Show # Valuables - Elder Items
+	ElderItem True
+	SetBorderColor 209 178 255 # Elder/Shaper Items
+	SetFontSize 38
+	PlayAlertSound 1 300
+
+Show # Valuables - Shaper Items
+	ShaperItem True
+	SetBorderColor 209 178 255 # Elder/Shaper Items
+	SetFontSize 38
+	PlayAlertSound 1 300	
 
 Show # Valuables - Breach rings
 	BaseType "Breach Ring"
