@@ -2,7 +2,7 @@
 # 
 # Changelog:
 # 
-# Added Abyss league support; added flagging for Elder and Shaper items; moved Orbs of Annulment to mid-tier currency (12/08/2017)
+# Added Abyss jewels and Stygian Vise; added flagging for Elder and Shaper items; moved Orbs of Annulment to mid-tier currency (12/08/2017)
 # Adjusted currency handling for items added in 3.0 (8/30/2017)
 # Added new currency types to the appropriate blocks; added minor handling for Item Classes Piece and Pantheon Soul (8/5/2017)
 # Updated list of drop-only gems (3/2/2017)
@@ -199,7 +199,13 @@ Show # Valuables - Leaguestones
 	SetBorderColor 161 245 185 # Talisman/legacy
 	SetFontSize 38
 	PlayAlertSound 1 300
-	
+
+Show #Valuables - Abyss Jewels
+	Class "Abyss Jewel"
+	SetBorder 90 90 90 # Abyss
+	SetFontSize 38
+	PlayAlertSound 7 300
+
 Show #Valuables - Stygian Vise
 	BaseType "Stygian Vise"
 	SetBorderColor 90 90 90 # Abyss
