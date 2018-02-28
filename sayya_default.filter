@@ -33,6 +33,8 @@
 # Maximized volume on alert sounds, tweaked high-end currency alert (5/1/2015)
 # Refined flask and quiver handling (4/30/2015)
 
+# EnableBlockGroups
+
 # Section: Currency
 
 # Add a currency-colored border to midtier currency
