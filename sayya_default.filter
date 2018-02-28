@@ -1,7 +1,8 @@
-# Sayya's item filter, v. 2.32 (12/08/2017)
+# Sayya's item filter, v. 2.4 (2/28/2018)
 # 
 # Changelog:
 # 
+# Added support for Bestiary league; adjusted identified and low base item handling; narrowed visible range of flasks; moved Stacked Deck to mid-tier currency (2/28/2018)
 # Added Abyss jewels and Stygian Vise; added flagging for Elder and Shaper items; moved Orbs of Annulment to mid-tier currency (12/08/2017)
 # Adjusted currency handling for items added in 3.0 (8/30/2017)
 # Added new currency types to the appropriate blocks; added minor handling for Item Classes Piece and Pantheon Soul (8/5/2017)
@@ -37,7 +38,7 @@
 # Add a currency-colored border to midtier currency
 Show # Currency - Mid
     Class "Currency"
-    BaseType "Annulment" "Harbinger's" "Engineer's" "Binding" "Horizon" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of" "Chaos Shard" "Regal Shard"
+    BaseType "Bestiary Orb" "Stacked Deck" "Annulment" "Harbinger's" "Engineer's" "Binding" "Horizon" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of" "Chaos Shard" "Regal Shard"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
 	PlayAlertSound 3 300
@@ -49,6 +50,19 @@ Show # Currency - High
     SetBorderColor 175 96 37 # Rare currency
     SetFontSize 42
     PlayAlertSound 5 300
+
+# Bestiary nets
+Show # Currency - Thaumaturgical Net
+	Class "Currency"
+	BaseType "Thaumaturgical Net"
+	SetBorderColor 191 244 0 # Nets
+	SetFontSize 38
+	PlayAlertSound 3 300
+
+Show # Currency - Other Nets
+	Class "Currency"
+	BaseType "Net"
+	SetBorderColor 191 244 0 # Nets
 
 # Default handling of other currency
 Show # Currency - Low
@@ -84,7 +98,7 @@ Show # Labyrinth - Keys
 	
 # Section: Flasks
 
-# Add a border to flasks that are near the current level or have 15%+ quality
+# Add a border to flasks that are near the current level or (are normal and have 10%+ quality)
 Show # Flasks - Utility
     Class "Utility Flask"
     SetBorderColor 88 0 179 # Utility/Hybrid/Quality flask
@@ -92,6 +106,7 @@ Show # Flasks - Utility
 Show # Flasks - Quality
     Quality >= 10
     Class "Flask"
+	Rarity Normal
     SetBorderColor 88 0 179 # Utility/Hybrid/Quality flask
 
 Show # Flasks - Hybrid - Hallowed
@@ -101,52 +116,50 @@ Show # Flasks - Hybrid - Hallowed
 
 Hide # Flasks - Hybrid - Other
     Class "Hybrid Flask"
-    SetTextColor 150 150 150 180 # Dim white
-    SetBackgroundColor 0 0 0 127 # Dim background
 
-Show # Flasks - Mana - ilvl < 15
-    ItemLevel < 15
+Show # Flasks - Mana - ilvl < 12
+    ItemLevel < 12
     Class "Mana Flask"
     SetBorderColor 88 0 222 # Mana flask
 
-Show # Flasks - Life - ilvl < 15
-    ItemLevel < 15
+Show # Flasks - Life - ilvl < 12
+    ItemLevel < 12
     Class "Life Flask"
     SetBorderColor 83 0 110 # Life flask
 
-Show # Flasks - Mana - ilvl < 26
-    ItemLevel < 26
-    DropLevel > 10
+Show # Flasks - Mana - ilvl < 23
+    ItemLevel < 23
+    DropLevel > 11
     Class "Mana Flask"
     SetBorderColor 88 0 222 # Mana flask
 
-Show # Flasks - Life - ilvl < 26
-    ItemLevel < 26
+Show # Flasks - Life - ilvl < 23
+    ItemLevel < 23
     DropLevel > 10
     Class "Life Flask"
     SetBorderColor 83 0 110 # Life flask
 
 Show # Flasks - Mana - ilvl < 34
-    ItemLevel < 34
+    ItemLevel < 32
     DropLevel > 22
     Class "Mana Flask"
     SetBorderColor 88 0 222 # Mana flask
 
 Show # Flasks - Life - ilvl < 34
-    ItemLevel < 34
+    ItemLevel < 32
     DropLevel > 22
     Class "Life Flask"
     SetBorderColor 83 0 110 # Life flask
 
 Show # Flasks - Mana - ilvl < 43
     ItemLevel < 43
-    DropLevel > 34
+    DropLevel > 35
     Class "Mana Flask"
     SetBorderColor 88 0 222 # Mana flask
 
 Show # Flasks - Life - ilvl < 43
     ItemLevel < 43
-    DropLevel > 34
+    DropLevel > 35
     Class "Life Flask"
     SetBorderColor 83 0 110 # Life flask
 
@@ -242,7 +255,7 @@ Show # Valuables - Fishing Rods
 Show # Valuables - Atlas Bases
 	BaseType "Blue Pearl" "Bone Helmet" "Crystal Belt" "Fingerless" "Gripped" "Marble Amulet" "Opal Ring" "Spiked Gloves" "Steel Ring" "Two-Toned" "Vanguard Belt"
 	SetFontSize 38
-	SetBorderColor 54 140 146
+	SetBorderColor 54 140 146 # Atlas bases
 
 # Section: Links and Sockets
 
@@ -292,15 +305,18 @@ Show # Corrupted White Items
 	Rarity = Normal
 	Corrupted True
 	SetBorderColor 150 0 0 # Vaal gems
+	SetFontSize 25
 
 Show # Magic ID - Corrupted
 	Rarity = Magic
 	Corrupted True
 	SetBorderColor 150 0 0 # Vaal gems
+	SetFontSize 25
 
 Show # Magic ID - Other
 	Rarity = Magic
 	Identified True
+	SetFontSize 25
 
 # Section: Regal Recipe
 
@@ -465,7 +481,6 @@ Show # Maraketh Weapons - Merciless
     BaseType "Sai"
     SetFontSize 25
 
-
 	
 #Highlight 4L items below level 50
 Show # Valuables - 4L
@@ -475,150 +490,66 @@ Show # Valuables - 4L
 	
 # Section: Cleanup (hiding)
 
-# Hide white and magic items with a substantial gap between drop and item level (REMOVE FROM HERE UNTIL NEXT COMMENT if you want nothing hidden)
+# Hide white and magic items with a substantial gap between drop and item level (REMOVE FROM HERE UNTIL LAST TWO BLOCKS if you want nothing hidden)
 Hide # Trash - Low Base
     ItemLevel >= 20
     DropLevel <= 10
-    Rarity = Normal
-    SetTextColor 150 150 150 180 # Dim white
-    SetBackgroundColor 0 0 0 127 # Dim background
+    Rarity <= Magic
     SetFontSize 25
 
 Hide # Trash - Low Base
     ItemLevel >= 30
     DropLevel <= 20
-    Rarity = Normal
-    SetTextColor 150 150 150 180 # Dim white
-    SetBackgroundColor 0 0 0 127 # Dim background
+    Rarity <= Magic
     SetFontSize 25
 
 Hide # Trash - Low Base
     ItemLevel >= 38
     DropLevel <= 30
-    Rarity = Normal
-    SetTextColor 150 150 150 180 # Dim white
-    SetBackgroundColor 0 0 0 127 # Dim background
+    Rarity <= Magic
     SetFontSize 25
 
 Hide # Trash - Low Base
     ItemLevel >= 46
     DropLevel <= 40
-    Rarity = Normal
-    SetTextColor 150 150 150 180 # Dim white
-    SetBackgroundColor 0 0 0 127 # Dim background
+    Rarity <= Magic
     SetFontSize 25
 
 Hide # Trash - Low Base
     ItemLevel >= 51
     DropLevel <= 45
-    Rarity = Normal
-    SetTextColor 150 150 150 180 # Dim white
-    SetBackgroundColor 0 0 0 127 # Dim background
+    Rarity <= Magic
     SetFontSize 25
 
 Hide # Trash - Low Base
     ItemLevel >= 55
     DropLevel <= 50
-    Rarity = Normal
-    SetTextColor 150 150 150 180 # Dim white
-    SetBackgroundColor 0 0 0 127 # Dim background
+    Rarity <= Magic
     SetFontSize 25
 
 Hide # Trash - Low Base
     ItemLevel >= 68
     DropLevel <= 61
-    Rarity = Normal
-    SetTextColor 150 150 150 180 # Dim white
-    SetBackgroundColor 0 0 0 127 # Dim background
+    Rarity <= Magic
     SetFontSize 25
 
 Hide # Trash - Low Base
     ItemLevel >= 75
     DropLevel <= 69
-    Rarity = Normal
-    SetTextColor 150 150 150 180 # Dim white
-    SetBackgroundColor 0 0 0 127 # Dim background
-    SetFontSize 25
-
-Hide # Trash - Low Base
-    ItemLevel >= 20
-    DropLevel <= 10
-    Rarity = Magic
-    SetTextColor 95 95 179 180 # Dim blue
-    SetBackgroundColor 0 0 0 127 # Dim background
-    SetFontSize 25
-
-Hide # Trash - Low Base
-    ItemLevel >= 30
-    DropLevel <= 20
-    Rarity = Magic
-    SetTextColor 95 95 179 180 # Dim blue
-    SetBackgroundColor 0 0 0 127 # Dim background
-    SetFontSize 25
-
-Hide # Trash - Low Base
-    ItemLevel >= 38
-    DropLevel <= 30
-    Rarity = Magic
-    SetTextColor 95 95 179 180 # Dim blue
-    SetBackgroundColor 0 0 0 127 # Dim background
-    SetFontSize 25
-
-Hide # Trash - Low Base
-    ItemLevel >= 46
-    DropLevel <= 40
-    Rarity = Magic
-    SetTextColor 95 95 179 180 # Dim blue
-    SetBackgroundColor 0 0 0 127 # Dim background
-    SetFontSize 25
-
-Hide # Trash - Low Base
-    ItemLevel >= 51
-    DropLevel <= 45
-    Rarity = Magic
-    SetTextColor 95 95 179 180 # Dim blue
-    SetBackgroundColor 0 0 0 127 # Dim background
-    SetFontSize 25
-
-Hide # Trash - Low Base
-    ItemLevel >= 55
-    DropLevel <= 50
-    Rarity = Magic
-    SetTextColor 95 95 179 180 # Dim blue
-    SetBackgroundColor 0 0 0 127 # Dim background
-    SetFontSize 25
-
-Hide # Trash - Low Base
-    ItemLevel >= 68
-    DropLevel <= 61
-    Rarity = Magic
-    SetTextColor 95 95 179 180 # Dim blue
-    SetBackgroundColor 0 0 0 127 # Dim background
-    SetFontSize 25
-
-Hide # Trash - Low Base
-    ItemLevel >= 75
-    DropLevel <= 69
-    Rarity = Magic
-    SetTextColor 95 95 179 180 # Dim blue
-    SetBackgroundColor 0 0 0 127 # Dim background
+    Rarity <= Magic
     SetFontSize 25
 
 # Section: Cleanup (dimming and shrinking) after A1N
 
 # Hide normal and magic items above level 30
-Hide # Trash - Dimmed
+Hide # Trash - After level 30
     ItemLevel > 30
     Rarity = Normal
-    SetTextColor 150 150 150 180 # Dim white
-    SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
 
-Hide # Trash - Dimmed
+Hide # Trash - After level 30
     ItemLevel > 30
     Rarity = Magic
-    SetTextColor 95 95 179 180 # Dim blue
-    SetBackgroundColor 0 0 0 127 # Dim background
     SetFontSize 25
 
 # Section: Cleanup (shrinking only) in A1N
