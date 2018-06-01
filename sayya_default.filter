@@ -289,7 +289,7 @@ Show # Magic ID - Warbands
 	SetBorderColor 54 100 146
 
 Show # Magic ID - Incursion
-    HasExplicitMod "Tacati's" "Citaqualotl's" "Matatl's" "Topotante's" "Xopec's" "Guatelitzi's" "of Tacati" "of Citaqualotl" "of Matatl" "of Topotante" "of Xopec" "of Guatelitzi" 
+    HasExplicitMod "Tacati's" "Citaqualotl's" "Matatl's" "Topotante's" "Xopec's" "Guatelitzi's" "of Tacati" "of Citaqualotl" "of Matatl" "of Guatelitzi" 
 	SetFontSize 34
 	SetBorderColor 54 100 146
 
