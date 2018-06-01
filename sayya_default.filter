@@ -1,7 +1,8 @@
-# Sayya's item filter, v. 2.4 (2/28/2018)
+# Sayya's item filter, v. 2.5 (6/1/2018)
 # 
 # Changelog:
 # 
+# Added support for Incursion league; changed the Warbands item handling (removing most id'd item display); removed display of white/blue corrupted items; adjusted gem, jewellery, rare item, and high ilvl item handling (6/1/2018)
 # Added support for Bestiary league; adjusted identified and low base item handling; narrowed visible range of flasks; moved Stacked Deck to mid-tier currency (2/28/2018)
 # Added Abyss jewels and Stygian Vise; added flagging for Elder and Shaper items; moved Orbs of Annulment to mid-tier currency (12/08/2017)
 # Adjusted currency handling for items added in 3.0 (8/30/2017)
@@ -40,7 +41,7 @@
 # Add a currency-colored border to midtier currency
 Show # Currency - Mid
     Class "Currency"
-    BaseType "Bestiary Orb" "Stacked Deck" "Annulment" "Harbinger's" "Engineer's" "Binding" "Horizon" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of" "Chaos Shard" "Regal Shard"
+    BaseType "Vial" "Bestiary Orb" "Stacked Deck" "Annulment" "Harbinger's" "Engineer's" "Binding" "Horizon" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of" "Chaos Shard" "Regal Shard"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
 	PlayAlertSound 3 300
@@ -54,9 +55,9 @@ Show # Currency - High
     PlayAlertSound 5 300
 
 # Bestiary nets
-Show # Currency - Thaumaturgical Net
+Show # Currency - Thaumaturgical/Necromantic Net
 	Class "Currency"
-	BaseType "Thaumaturgical Net"
+	BaseType "Thaumaturgical Net" "Necromantic Net"
 	SetBorderColor 191 244 0 # Nets
 	SetFontSize 38
 	PlayAlertSound 3 300
@@ -70,7 +71,7 @@ Show # Currency - Other Nets
 Show # Currency - Low
     Class "Currency"
 
-# Section: Maps, Uniques, Quest Items, Lab, Pieces, Pantheon Souls
+# Section: Maps, Uniques, Quest/Incursion Items, Lab, Pieces, Pantheon Souls
 
 # Adjust font size of: uniques, maps (includes fragments, breachstones, reliquary keys, and offerings), quest items, and labyrinth items
 Show # Maps/Fragments
@@ -78,8 +79,8 @@ Show # Maps/Fragments
 	PlayAlertSound 6 300
     SetFontSize 38
 
-Show # Quest Items
-    Class "Quest"
+Show # Quest/Incursion Items
+    Class "Quest" "Incursion"
     SetFontSize 38
 
 Show # Valuables - Uniques and Relics
@@ -291,34 +292,27 @@ Show # Valuables - RGB Items
     SetBackgroundColor 0 0 0 255 # Contrast background
     SetFontSize 38
 	
-# Section: Identified and Corrupted Items
+# Section: Special Item Mods
 
-# Show potential warbands items with a border and slightly enlarged
-Show # Magic ID - Possible Warbands
-    Rarity = Magic
-	Identified True
-	Corrupted False
-	Class Boots Gloves Helmets Claws Daggers Wands Swords Axes Maces Bows Staves Sceptres
+# Show Warbands and Incursion mod items with a border and slightly enlarged
+Show # Magic ID - Warbands
+    HasExplicitMod "Brinerot" "Mutewind" "Redblade" "Betrayer's" "Deceiver's" "Turncoat's"
 	SetFontSize 34
 	SetBorderColor 54 100 146
 
-# Protect other id'd blues and corrupted whites from later filtering with a red border; id'd/corrupted rares will filter as normal rares
-Show # Corrupted White Items
-	Rarity = Normal
-	Corrupted True
-	SetBorderColor 150 0 0 # Vaal gems
-	SetFontSize 25
+Show # Magic ID - Incursion
+    HasExplicitMod "Tacati's" "Citaqualotl's" "Matatl's" "Topotante's" "Xopec's" "Guatelitzi's" "of Tacati" "of Citaqualotl" "of Matatl" "of Topotante" "of Xopec" "of Guatelitzi" 
+	SetFontSize 34
+	SetBorderColor 54 100 146
 
-Show # Magic ID - Corrupted
-	Rarity = Magic
-	Corrupted True
-	SetBorderColor 150 0 0 # Vaal gems
-	SetFontSize 25
+# Section: Rare Handling
 
-Show # Magic ID - Other
-	Rarity = Magic
-	Identified True
-	SetFontSize 25
+# Dim 4x2 rares
+Show # Rares - Large
+    Rarity = Rare
+	Width 2
+	Height 4
+	SetTextColor 255 255 119 200 # Dimmed rare
 
 # Section: Regal Recipe
 
@@ -326,7 +320,13 @@ Show # Magic ID - Other
 Show # Rares - 75+ - Nonrecipe
     ItemLevel >= 75
     Rarity = Rare
-    Class "Shields" "One Hand" "Quivers" "Claws" "Daggers" "Wands" "Sceptres"
+    Class "Shields" "Quivers"
+	
+Show # Rares - 75+ - Nonrecipe
+	ItemLevel >= 75
+	Rarity = Rare
+	Class "Claw" "One Hand" "Sceptre"
+	Width 2
 
 Show # Rares - 75+ - Regal recipe - Quality & Jewelry
     ItemLevel >= 75
@@ -351,7 +351,13 @@ Show # Rares - 75+ - Regal recipe
 Show # Rares - 60+ - Nonrecipe
     ItemLevel >= 60
     Rarity = Rare
-    Class "Shields" "One Hand" "Quivers" "Claws" "Daggers" "Wands" "Sceptres"
+    Class "Shields" "Quivers"
+	
+Show # Rares - 60+ - Nonrecipe
+	ItemLevel >= 60
+	Rarity = Rare
+	Class "Claw" "One Hand" "Sceptre"
+	Width 2
 
 Show # Rares - 60+ - Chaos recipe - Quality & Jewelry
     ItemLevel >= 60
@@ -372,65 +378,61 @@ Show # Rares - 60+ - Chaos recipe
 
 # Section: Gems
 
-# Slightly enlarge and add a teal border to quality gems as well as Empower etc.; shrink all other gems slightly; slightly dim active gems.
+# Slightly enlarge and add a teal border to quality gems as well as Empower etc.; shrink other gems
 Show # Gems - Quality
     Quality > 0
     Class "Gem"
     SetBorderColor 54 100 146 # Valuable/quality gems
-    SetFontSize 38
+    SetFontSize 35
 
 Show # Gems - Valuable
     Class "Gem"
     BaseType "Empower" "Enhance" "Enlighten" "Portal" "Detonate Mines" "Added Chaos"
     SetBorderColor 54 100 146 # Valuable/quality gems
-    SetFontSize 38
+    SetFontSize 35
 
 Show # Gems - Vaal
     Class "Gem"
     BaseType "Vaal"
     SetBorderColor 150 0 0 # Vaal gems
-    SetFontSize 38
-
-Show # Gems - Support
-    Class "Support"
     SetFontSize 35
 
-Show # Gems - Active - Aura/Buff
-    Class "Active"
-    BaseType "Wrath" "Anger" "Hatred" "Clarity" "Determination" "Grace" "Discipline" "Vitality" "Haste" "Purity of" "Herald of" "Arctic Armour" 
-    SetFontSize 35
-	
-Show # Gems - Active - Other
-    Class "Active"
+Show # Gems - Normal/Leveled
+    Class "Gem"
+	ItemLevel < 40
     SetFontSize 25
 
 # Section: Base Items
 
-# Add a teal border to ilvl 83+ weapons or 84+ other items of desired bases
-Show # Bases - 83+ weapon crafting Maraketh
-    ItemLevel >= 83
+# Add a teal border to high ilvl crafting bases
+Show # Bases - 84+ weapon crafting Maraketh
+    ItemLevel >= 84
     Rarity = Normal
     BaseType "Maraketh Bow" "Eclipse Staff" "Exquisite Blade" "Coronal Maul" "Fleshripper" "Dragoon Sword" "Sambar Sceptre" "Runic Hatchet" "Tiger Hook" "Behemoth Mace" "Profane Wand" "Gemini Claw"
     SetBorderColor 54 100 146 # Crafting bases
+	SetFontSize 25
 
-Show # Bases - 83+ weapon crafting other
-    ItemLevel >= 83
+Show # Bases - 84+ weapon crafting other
+    ItemLevel >= 84
     Rarity = Normal
-	BaseType "Imbued Wand" "Vaal Axe" "Harbinger Bow" "Ambusher" "Platinum Kris" "Maelst" "Judgement Staff" "Void Sceptre" "Harpy Rapier" "Opal Wand"
+	BaseType "Imbued Wand" "Vaal Axe" "Harbinger Bow" "Ambusher" "Platinum Kris" "Maelst" "Judgement Staff" "Void Sceptre" "Harpy Rapier" "Opal Wand" "Terror Claw" "Imperial Claw" "Eternal Sword" "Midnight Blade" "Jewelled Foil" "Vaal Rapier" "Vaal Hatchet" "Royal Axe" "Auric Mace" "Nightmare Mace" "Void Sceptre" "Imperial Bow" "Lion Sword" "Vaal Greatsword" "Terror Maul" "Imperial Maul"
 	SetBorderColor 54 100 146 # Crafting bases
+	SetFontSize 25
 
-Show # Bases - 84+ armour crafting
-    ItemLevel >= 83
+Show # Bases - 86+ armour crafting
+    ItemLevel >= 86
     Rarity = Normal
 	BaseType "Carnal Armour" "Assassin's Garb" "Astral Plate" "Occultist's Vestment" "Saintly Chainmail" "Triumphant Lamellar" "Vaal Regalia" "Glorious Plate" "Zodiac Leather" "Slink Boots" "Titan Greaves" "Sorcerer Boots" "Slink Gloves" "Sorcerer Gloves" "Titan Gauntlets" "Lion Pelt" "Eternal Burgonet" "Hubris Circlet" "Pinnacle Tower Shield" "Imperial Buckler" "Titanium Spirit Shield" "Archon Kite Shield" 
 	SetBorderColor 54 100 146 # Crafting bases
+	SetFontSize 25
 
-Show # Bases - 84+ accessory crafting
-    ItemLevel >= 83
+Show # Bases - 86+ accessory crafting
+    ItemLevel >= 86
     Rarity = Normal	
 	Class "Amulet" "Ring" "Belt" "Quivers"
 	BaseType "Amber" "Jade" "Lapis" "Gold" "Onyx" "Citrine" "Turquoise" "Agate" "Leather" "Heavy Belt" "Rustic" "Sapphire" "Topaz" "Ruby" "Two-Stone" "Diamond" "Moonstone" "Broadhead" "Spike-Point"
 	SetBorderColor 54 100 146 # Crafting bases
+	SetFontSize 25
 
 # Add a dark green border to normal items of desired chance bases
 Show # Bases - Chance
@@ -444,13 +446,9 @@ Show # Bases - Chance
 Show # Rares - Other
     Rarity = Rare
 
-# Section: Other Items (accessories, chisel hammers, Maraketh weapons, Sacrificial Garb)
+# Section: Other Items (chisel hammers, Maraketh weapons, Sacrificial Garb)
 
-# Always show Maraketh weapons (capped by level), accessories (reduced size), hammers (white or magic 12%), and sacrificial garbs
-Show # Jewelry
-    Rarity <= Magic
-    Class "Amulet" "Ring" "Belt"
-    SetFontSize 25
+# Always show Maraketh weapons (capped by level), hammers (white or magic 12%), and sacrificial garbs
 
 Show # Chisel Hammers
     Rarity = Normal
@@ -482,7 +480,6 @@ Show # Maraketh Weapons - Merciless
     Class "Daggers"
     BaseType "Sai"
     SetFontSize 25
-
 	
 #Highlight 4L items below level 50
 Show # Valuables - 4L
@@ -541,7 +538,7 @@ Hide # Trash - Low Base
     Rarity <= Magic
     SetFontSize 25
 
-# Section: Cleanup (dimming and shrinking) after A1N
+# Section: Cleanup (hiding and shrinking) after A1N
 
 # Hide normal and magic items above level 30
 Hide # Trash - After level 30
