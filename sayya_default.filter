@@ -1,7 +1,8 @@
-# Sayya's item filter, v. 2.5 (6/1/2018)
+# Sayya's item filter, v. 2.51 (6/1/2018)
 # 
 # Changelog:
 # 
+# Removed nets (6/1/2018)
 # Added support for Incursion league; changed the Warbands item handling (removing most id'd item display); removed display of white/blue corrupted items; adjusted gem, jewellery, rare item, and high ilvl item handling (6/1/2018)
 # Added support for Bestiary league; adjusted identified and low base item handling; narrowed visible range of flasks; moved Stacked Deck to mid-tier currency (2/28/2018)
 # Added Abyss jewels and Stygian Vise; added flagging for Elder and Shaper items; moved Orbs of Annulment to mid-tier currency (12/08/2017)
@@ -53,19 +54,6 @@ Show # Currency - High
     SetBorderColor 175 96 37 # Rare currency
     SetFontSize 42
     PlayAlertSound 5 300
-
-# Bestiary nets
-Show # Currency - Thaumaturgical/Necromantic Net
-	Class "Currency"
-	BaseType "Thaumaturgical Net" "Necromantic Net"
-	SetBorderColor 191 244 0 # Nets
-	SetFontSize 38
-	PlayAlertSound 3 300
-
-Show # Currency - Other Nets
-	Class "Currency"
-	BaseType "Net"
-	SetBorderColor 191 244 0 # Nets
 
 # Default handling of other currency
 Show # Currency - Low
