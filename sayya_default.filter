@@ -1,7 +1,8 @@
-# Sayya's item filter, v. 2.51 (6/1/2018)
+# Sayya's item filter, v. 2.52 (6/2/2018)
 # 
 # Changelog:
 # 
+# Adjusted Incursion item handling (added an affix, added drop sounds to temple items) (6/2/2018)
 # Removed nets (6/1/2018)
 # Added support for Incursion league; changed the Warbands item handling (removing most id'd item display); removed display of white/blue corrupted items; adjusted gem, jewellery, rare item, and high ilvl item handling (6/1/2018)
 # Added support for Bestiary league; adjusted identified and low base item handling; narrowed visible range of flasks; moved Stacked Deck to mid-tier currency (2/28/2018)
@@ -67,9 +68,14 @@ Show # Maps/Fragments
 	PlayAlertSound 6 300
     SetFontSize 38
 
-Show # Quest/Incursion Items
-    Class "Quest" "Incursion"
+Show # Quest Items
+    Class "Quest"
     SetFontSize 38
+	
+Show # Incursion Items
+    Class "Incursion"
+	PlayAlertSound 10 300
+    SetFontSize 42
 
 Show # Valuables - Uniques and Relics
     Rarity > Rare
@@ -289,7 +295,7 @@ Show # Magic ID - Warbands
 	SetBorderColor 54 100 146
 
 Show # Magic ID - Incursion
-    HasExplicitMod "Tacati's" "Citaqualotl's" "Matatl's" "Topotante's" "Xopec's" "Guatelitzi's" "of Tacati" "of Citaqualotl" "of Matatl" "of Guatelitzi" 
+    HasExplicitMod "Tacati's" "Citaqualotl's" "Matatl's" "Topotante's" "Xopec's" "Guatelitzi's" "of Tacati" "of Citaqualotl" "of Matatl" "of Guatelitzi" "of Puhuarte"
 	SetFontSize 34
 	SetBorderColor 54 100 146
 
@@ -300,7 +306,7 @@ Show # Rares - Large
     Rarity = Rare
 	Width 2
 	Height 4
-	SetTextColor 255 255 119 200 # Dimmed rare
+	SetTextColor 255 255 119 150 # Dimmed rare
 
 # Section: Regal Recipe
 
