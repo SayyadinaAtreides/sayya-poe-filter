@@ -1,7 +1,8 @@
-# Sayya's item filter, v. 2.52 (6/2/2018)
+# Sayya's item filter, v. 2.6 (8/31/2018)
 # 
 # Changelog:
 # 
+# Added Delve currency handling, added map tier filtering, added drop lights and icons, temporarily commented out Incursion support, removed many chance base item highlighting (8/31/2018)
 # Adjusted Incursion item handling (added an affix, added drop sounds to temple items) (6/2/2018)
 # Removed nets (6/1/2018)
 # Added support for Incursion league; changed the Warbands item handling (removing most id'd item display); removed display of white/blue corrupted items; adjusted gem, jewellery, rare item, and high ilvl item handling (6/1/2018)
@@ -47,11 +48,23 @@ Show # Currency - Mid
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
 	PlayAlertSound 3 300
+	
+# Add a mid-tier currency border and sound plus a blue light to Delve currency
+Show # Currency - Delve
+    Class "Currency"
+	BaseType "Fossil" "Resonator"
+	PlayEffect Blue
+	SetBorderColor 170 158 130 # Uncommon currency
+    SetFontSize 38
+	PlayAlertSound 3 300
+	
 
 # Add a unique border and sound to high-end currency (AlertSound5)
 Show # Currency - High
     Class "Currency"
     BaseType "Exalted" "Divine Orb" "Eternal Orb" "Mirror of" "Feather" "Mirror Shard"
+	PlayEffect White
+	MinimapIcon 0 Yellow Star
     SetBorderColor 175 96 37 # Rare currency
     SetFontSize 42
     PlayAlertSound 5 300
@@ -63,7 +76,31 @@ Show # Currency - Low
 # Section: Maps, Uniques, Quest/Incursion Items, Lab, Pieces, Pantheon Souls
 
 # Adjust font size of: uniques, maps (includes fragments, breachstones, reliquary keys, and offerings), quest items, and labyrinth items
-Show # Maps/Fragments
+Show # Maps/Fragments - Red Maps
+    Class "Map"
+	MapTier > 10
+	PlayEffect Red
+	MinimapIcon 1 Red Circle
+	PlayAlertSound 6 300
+    SetFontSize 38
+	
+Show # Maps/Fragments - Yellow Maps
+    Class "Map"
+	MapTier > 5
+	PlayEffect Yellow Temp
+	MinimapIcon 2 Yellow Circle
+	PlayAlertSound 6 300
+    SetFontSize 38
+	
+Show # Maps/Fragments - Reliquary Key
+    Class "Map"
+	BaseType "Reliquary"
+	PlayEffect Green
+	MinimapIcon 2 Green Circle
+	PlayAlertSound 6 300
+    SetFontSize 38
+
+Show # Maps/Fragments - Fragments and White Maps
     Class "Map"
 	PlayAlertSound 6 300
     SetFontSize 38
@@ -72,10 +109,10 @@ Show # Quest Items
     Class "Quest"
     SetFontSize 38
 	
-Show # Incursion Items
-    Class "Incursion"
-	PlayAlertSound 10 300
-    SetFontSize 42
+#Show # Incursion Items
+#    Class "Incursion"
+#	PlayAlertSound 10 300
+#    SetFontSize 42
 
 Show # Valuables - Uniques and Relics
     Rarity > Rare
@@ -248,6 +285,8 @@ Show # Valuables - Fishing Rods
     SetBorderColor 175 96 37 # Rare currency
     SetFontSize 42
     PlayAlertSound 5 300
+	PlayEffect Brown
+	MinimapIcon 0 Brown Star
 	
 Show # Valuables - Atlas Bases
 	BaseType "Blue Pearl" "Bone Helmet" "Crystal Belt" "Fingerless" "Gripped" "Marble Amulet" "Opal Ring" "Spiked Gloves" "Steel Ring" "Two-Toned" "Vanguard Belt"
@@ -259,6 +298,7 @@ Show # Valuables - Atlas Bases
 # Add a grey border and sound to 6s/5l/6l items (AlertSound2)
 Show # Valuables - 5/6L
     LinkedSockets >= 5
+	PlayEffect White Temp
     SetBorderColor 127 127 127 # 6S/5L/6L border
     SetBackgroundColor 0 0 0 255 # Contrast background
     SetFontSize 42
@@ -431,7 +471,7 @@ Show # Bases - 86+ accessory crafting
 # Add a dark green border to normal items of desired chance bases
 Show # Bases - Chance
     Rarity = Normal
-    BaseType "Agate Amulet" "Leather Belt" "Sorcerer Boots" "Prophecy Wand" "Occultist's Vestment" "Jewelled Foil"
+    BaseType "Leather Belt" "Sorcerer Boots"
     SetBorderColor 0 73 0 # Chance bases
 		
 # Section: Rares
