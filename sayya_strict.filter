@@ -1,7 +1,8 @@
-# Sayya's item filter, strict, v. 2.61 (9/2/2018)
+# Sayya's item filter, strict, v. 2.63 (9/3/2018)
 # 
 # Changelog:
 # 
+# Minor updates for other Delve features (9/3/2018)
 # First draft of stricter version, hiding almost all gems and hiding non-4L items much earlier (9/2/2018)
 # Added Delve currency handling, added map tier filtering, added drop lights and icons, temporarily commented out Incursion support, removed many chance base item highlighting (8/31/2018)
 # Adjusted Incursion item handling (added an affix, added drop sounds to temple items) (6/2/2018)
@@ -329,7 +330,7 @@ Show # Valuables - RGB Items
 	
 # Section: Special Item Mods
 
-# Show Warbands and Incursion mod items with a border and slightly enlarged
+# Show special, identified mod items with a border and slightly enlarged
 Show # ID - Warbands
     HasExplicitMod "Brinerot" "Mutewind" "Redblade" "Betrayer's" "Deceiver's" "Turncoat's"
 	SetFontSize 34
@@ -337,6 +338,11 @@ Show # ID - Warbands
 
 Show # ID - Incursion
     HasExplicitMod "Tacati's" "Citaqualotl's" "Matatl's" "Topotante's" "Xopec's" "Guatelitzi's" "of Tacati" "of Citaqualotl" "of Matatl" "of Guatelitzi" "of Puhuarte"
+	SetFontSize 34
+	SetBorderColor 54 100 146
+
+Show # ID - Delve and crafting
+	HasExplicitMod "Subterranean" "of the Underground" "of Crafting" "of Weaponcraft" "of Spellcraft"
 	SetFontSize 34
 	SetBorderColor 54 100 146
 
