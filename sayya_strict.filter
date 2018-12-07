@@ -1,7 +1,9 @@
-# Sayya's item filter, strict, v. 2.63 (9/3/2018)
+# Sayya's item filter, strict, v. 2.64 (12/7/2018)
 # 
 # Changelog:
 # 
+# Minor updates for Betrayal league (12/7/2018)
+# Further iteration on strict definitions
 # Minor updates for other Delve features (9/3/2018)
 # First draft of stricter version, hiding almost all gems and hiding non-4L items much earlier (9/2/2018)
 # Added Delve currency handling, added map tier filtering, added drop lights and icons, temporarily commented out Incursion support, removed many chance base item highlighting (8/31/2018)
@@ -59,7 +61,6 @@ Show # Currency - Delve
 	SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
 	PlayAlertSound 3 300
-	
 
 # Add a unique border and sound to high-end currency (AlertSound5)
 Show # Currency - High
@@ -70,6 +71,13 @@ Show # Currency - High
     SetBorderColor 175 96 37 # Rare currency
     SetFontSize 42
     PlayAlertSound 5 300
+	
+# Hide scrolls unless alt is pressed
+
+Hide # Currency - Scrolls
+	Class "Currency"
+	BaseType "Scroll"
+	SetFontSize 30
 
 # Default handling of other currency
 Show # Currency - Low
@@ -106,15 +114,16 @@ Show # Maps/Fragments - Fragments and White Maps
     Class "Map"
 	PlayAlertSound 6 300
     SetFontSize 38
+	MinimapIcon 2 White Circle
 
 Show # Quest Items
     Class "Quest"
     SetFontSize 38
 	
-#Show # Incursion Items
-#    Class "Incursion"
-#	PlayAlertSound 10 300
-#    SetFontSize 42
+Show # Incursion Items
+    Class "Incursion"
+	PlayAlertSound 10 300
+    SetFontSize 42
 
 Show # Valuables - Uniques and Relics
     Rarity > Rare
@@ -134,15 +143,14 @@ Show # Labyrinth - Keys
 	
 # Section: Flasks
 
-# Add a border to flasks that are near the current level or (are normal and have 10%+ quality)
+# Add a border to flasks that are near the current level or (are high-quality utility flasks)
 Show # Flasks - Utility
     Class "Utility Flask"
+	Quality >= 10
     SetBorderColor 88 0 179 # Utility/Hybrid/Quality flask
-
-Show # Flasks - Quality
-    Quality >= 10
-    Class "Flask"
-	Rarity Normal
+	
+Hide # Flasks - Utility
+    Class "Utility Flask"
     SetBorderColor 88 0 179 # Utility/Hybrid/Quality flask
 
 Show # Flasks - Hybrid - Hallowed
@@ -211,24 +219,24 @@ Show # Flasks - Life - ilvl < 55
     Class "Life Flask"
     SetBorderColor 83 0 110 # Life flask
 
-Show # Flasks - Mana - Divine+ - (under 70)
+Show # Flasks - Mana - Divine+ - (under 65)
     DropLevel > 58
-    ItemLevel < 70
+    ItemLevel < 65
     Class "Mana Flask"
     SetBorderColor 88 0 222 # Mana flask
 
-Show # Flasks - Life - Divine+ - (under 70)
+Show # Flasks - Life - Divine+ - (under 65)
     DropLevel > 58
-    ItemLevel < 70
+    ItemLevel < 65
     Class "Life Flask"
     SetBorderColor 83 0 110 # Life flask
 
-Show # Flasks - Mana - Divine+ - (over 70)
+Hide # Flasks - Mana - Divine+ - (over 70)
     DropLevel > 58
     Class "Mana Flask"
     SetFontSize 25
 
-Show # Flasks - Life - Divine+ - (over 70)
+Hide # Flasks - Life - Divine+ - (over 70)
     DropLevel > 58
     Class "Life Flask"
     SetFontSize 25
@@ -248,6 +256,10 @@ Show # Valuables - Leaguestones
 	SetBorderColor 161 245 185 # Talisman/legacy
 	SetFontSize 38
 	PlayAlertSound 1 300
+	
+Show # Valuables - Quality > 20 Items
+	Quality > 20
+	SetBorderColor 161 245 185 # Talisman/legacy
 
 Show #Valuables - Abyss Jewels
 	Class "Abyss Jewel"
@@ -317,6 +329,7 @@ Show # Valuables - 6S
 Show # Valuables - RGB Items
     Rarity = Normal
     SocketGroup "RGB"
+	Height <= 3
     SetTextColor 255 255 255 # RGB whites
     SetBackgroundColor 0 0 0 255 # Contrast background
     SetFontSize 38
@@ -324,6 +337,7 @@ Show # Valuables - RGB Items
 Show # Valuables - RGB Items
     Rarity = Magic
     SocketGroup "RGB"
+	Height <= 3
     SetTextColor 125 175 255 # RGB blues
     SetBackgroundColor 0 0 0 255 # Contrast background
     SetFontSize 38
@@ -344,6 +358,11 @@ Show # ID - Incursion
 Show # ID - Delve and crafting
 	HasExplicitMod "Subterranean" "of the Underground" "of Crafting" "of Weaponcraft" "of Spellcraft"
 	SetFontSize 34
+	SetBorderColor 54 100 146\
+	
+Show # ID - Veiled
+	HasExplicitMod "Veiled" "Veil"
+	SetFontSize 34
 	SetBorderColor 54 100 146
 
 # Section: Rare Handling
@@ -351,8 +370,10 @@ Show # ID - Delve and crafting
 # Dim 4x2 rares
 Show # Rares - Large
     Rarity = Rare
+	ItemLevel < 84
 	Width 2
 	Height 4
+	SetFontSize 25
 	SetTextColor 255 255 119 150 # Dimmed rare
 
 # Section: Regal Recipe
@@ -369,16 +390,11 @@ Show # Rares - 75+ - Nonrecipe
 	Class "Claw" "One Hand" "Sceptre"
 	Width 2
 
-Show # Rares - 75+ - Regal recipe - Quality & Jewelry
+Show # Rares - 75+ - Regal recipe - Jewelry
     ItemLevel >= 75
+	SetFontSize 35
     Rarity = Rare
     Class "Rings" "Amulets" "Belts"
-    SetBorderColor 136 136 255 # Regal recipe bright
-
-Show # Rares - 75+ - Regal recipe - Quality & Jewelry
-    ItemLevel >= 75
-    Rarity = Rare
-    Quality > 15
     SetBorderColor 136 136 255 # Regal recipe bright
 
 Show # Rares - 75+ - Regal recipe
@@ -400,16 +416,11 @@ Show # Rares - 60+ - Nonrecipe
 	Class "Claw" "One Hand" "Sceptre"
 	Width 2
 
-Show # Rares - 60+ - Chaos recipe - Quality & Jewelry
+Show # Rares - 60+ - Chaos recipe - Jewelry
     ItemLevel >= 60
     Rarity = Rare
     Class "Rings" "Amulets" "Belts"
-    SetBorderColor 254 170 0 # Chaos recipe bright
-
-Show # Rares - 60+ - Chaos recipe - Quality & Jewelry
-    ItemLevel >= 60
-    Rarity = Rare
-    Quality > 15
+	SetFontSize 35
     SetBorderColor 254 170 0 # Chaos recipe bright
 
 Show # Rares - 60+ - Chaos recipe
@@ -436,7 +447,6 @@ Show # Gems - Vaal
     Class "Gem"
     BaseType "Vaal"
     SetBorderColor 150 0 0 # Vaal gems
-    SetFontSize 35
 	
 Show # Gems - Level 18+
 	Class "Gem"
@@ -504,25 +514,6 @@ Show # Chisel Hammers
 
 Show # Valuables - Sacrificial Garb
     BaseType "Sacrificial Garb"
-
-Show # Maraketh Weapons - Normal
-    ItemLevel < 50
-    BaseType "Reflex Bow" "Crescent Staff" "Curved Blade" "Morning Star" "Dagger Axe" "Smallsword" "Horned Sceptre" "Etched Hatchet" "Hook Sword" "Wyrm Mace" "Prong Dagger" "Pagan Wand" "Double Claw"
-    SetFontSize 25
-
-Show # Maraketh Weapons - Cruel
-    ItemLevel < 70
-    BaseType "Steelwood Bow" "Moon Staff" "Lithe Blade" "Solar Maul" "Talon Axe" "Courtesan Sword" "Stag Sceptre" "Engraved Hatchet" "Grappler" "Dragon Mace" "Trisula" "Heathen Wand" "Twin Claw"
-    SetFontSize 25
-
-Show # Maraketh Weapons - Merciless
-    BaseType "Maraketh Bow" "Eclipse Staff" "Exquisite Blade" "Coronal Maul" "Fleshripper" "Dragoon Sword" "Sambar Sceptre" "Runic Hatchet" "Tiger Hook" "Behemoth Mace" "Profane Wand" "Gemini Claw"
-    SetFontSize 25
-
-Show # Maraketh Weapons - Merciless
-    Class "Daggers"
-    BaseType "Sai"
-    SetFontSize 25
 	
 #Highlight 4L items below level 50
 Show # Valuables - 4L
@@ -535,6 +526,7 @@ Show # Valuables - 4L
 # Hide normal and magic items above level 15
 Hide # Trash - After level 15
     ItemLevel > 15
+	SetFontSize 25
     Rarity < Rare
 
 # Section: Cleanup (shrinking only) in A1N

@@ -1,7 +1,9 @@
-# Sayya's item filter, v. 2.63 (9/3/2018)
+# Sayya's item filter, v. 2.64 (12/7/2018)
 # 
 # Changelog:
 # 
+# Minor updates for Betrayal league (12/7/2018)
+# Highlights items with quality > 20
 # Minor updates for other Delve features (9/3/2018)
 # Added Delve currency handling, added map tier filtering, added drop lights and icons, temporarily commented out Incursion support, removed many chance base item highlighting (8/31/2018)
 # Adjusted Incursion item handling (added an affix, added drop sounds to temple items) (6/2/2018)
@@ -110,10 +112,10 @@ Show # Quest Items
     Class "Quest"
     SetFontSize 38
 	
-#Show # Incursion Items
-#    Class "Incursion"
-#	PlayAlertSound 10 300
-#    SetFontSize 42
+Show # Incursion Items
+    Class "Incursion"
+	PlayAlertSound 10 300
+    SetFontSize 42
 
 Show # Valuables - Uniques and Relics
     Rarity > Rare
@@ -247,6 +249,10 @@ Show # Valuables - Leaguestones
 	SetBorderColor 161 245 185 # Talisman/legacy
 	SetFontSize 38
 	PlayAlertSound 1 300
+	
+Show # Valuables - Quality > 20 Items
+	Quality > 20
+	SetBorderColor 161 245 185 # Talisman/legacy
 
 Show #Valuables - Abyss Jewels
 	Class "Abyss Jewel"
@@ -342,6 +348,11 @@ Show # ID - Incursion
 
 Show # ID - Delve and crafting
 	HasExplicitMod "Subterranean" "of the Underground" "of Crafting" "of Weaponcraft" "of Spellcraft"
+	SetFontSize 34
+	SetBorderColor 54 100 146
+
+Show # ID - Veiled
+	HasExplicitMod "Veiled" "Veil"
 	SetFontSize 34
 	SetBorderColor 54 100 146
 
