@@ -1,7 +1,8 @@
-# Sayya's item filter, strict, v. 2.64 (12/7/2018)
+# Sayya's item filter, strict, v. 2.7 (3/8/2019)
 # 
 # Changelog:
 # 
+# Minor updates for Synthesis league: support for enchanted, fractured, and synthesized items (3/8/2019)
 # Minor updates for Betrayal league (12/7/2018)
 # Further iteration on strict definitions
 # Minor updates for other Delve features (9/3/2018)
@@ -244,6 +245,24 @@ Hide # Flasks - Life - Divine+ - (over 70)
 # Section: Special Items
 
 # Add border and sound to special items
+
+Show # Valuables - Enchanted items
+	AnyEnchantment True
+	SetBorderColor 54 140 146 # Atlas bases
+	SetFontSize 38
+
+Show # Valuables - Synthesized/Fractures
+    FracturedItem True
+    SetBorderColor 31 45 171 # Synthesized/Fractured
+	SetFontSize 38
+	PlayAlertSound 1 300
+	
+Show # Valuables - Synthesized/Fractured
+    SynthesisedItem True
+    SetBorderColor 31 45 171 # Synthesized/Fractured
+	SetFontSize 38
+	PlayAlertSound 1 300
+	
 Show # Valuables - Talismans
     Class "Amulet"
 	BaseType "Talisman"
@@ -358,7 +377,7 @@ Show # ID - Incursion
 Show # ID - Delve and crafting
 	HasExplicitMod "Subterranean" "of the Underground" "of Crafting" "of Weaponcraft" "of Spellcraft"
 	SetFontSize 34
-	SetBorderColor 54 100 146\
+	SetBorderColor 54 100 146
 	
 Show # ID - Veiled
 	HasExplicitMod "Veiled" "Veil"
