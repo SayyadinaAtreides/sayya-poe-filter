@@ -1,8 +1,8 @@
-# Sayya's item filter, strict, v. 2.71 (6/7/2019)
+# Sayya's item filter, strict, v. 2.72 (6/7/2019)
 # 
 # Changelog:
 # 
-# Minor updates for Legion league: support for incubators (6/7/19)
+# Minor updates for Legion league: support for incubators; changing from currency to Incubators (6/7/19)
 # Minor updates for Synthesis league: support for enchanted, fractured, and synthesized items (3/8/2019)
 # Minor updates for Betrayal league (12/7/2018)
 # Further iteration on strict definitions
@@ -50,7 +50,7 @@
 # Add a currency-colored border to midtier currency
 Show # Currency - Mid
     Class "Currency"
-    BaseType "Incubator" "Vial" "Bestiary Orb" "Stacked Deck" "Annulment" "Harbinger's" "Engineer's" "Binding" "Horizon" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of" "Chaos Shard" "Regal Shard"
+    BaseType "Vial" "Bestiary Orb" "Stacked Deck" "Annulment" "Harbinger's" "Engineer's" "Binding" "Horizon" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of" "Chaos Shard" "Regal Shard"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
 	PlayAlertSound 3 300
@@ -246,6 +246,12 @@ Hide # Flasks - Life - Divine+ - (over 70)
 # Section: Special Items
 
 # Add border and sound to special items
+
+Show # Valuables - Incubators
+	Class Incubator
+	SetBorderColor 31 45 171 # Synthesized/Fractured
+	SetFontSize 38
+	PlayAlertSound 1 300
 
 Show # Valuables - Enchanted items
 	AnyEnchantment True
