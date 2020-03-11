@@ -1,9 +1,11 @@
-# Sayya's item filter, v. 2.73 (8/6/2019)
+# Sayya's item filter, v. 2.76 (3/11/2020)
 # 
-
-# Minor updates for # Changelog:
+# Changelog:
 # 
-# Minor updates for Blight league: added oils to stackable currency; added new Atlas basetypes (8/6/2019)Legion league: support for incubators; change from currency to Incubators (6/7/2019)
+# Several minor changes: updated for Delirium, adjusted map and watchstone drops, removed borders from non-cluster/abyss jewels, etc. Also adjusted rare item displays on good bases (3/11/2019) 
+# Minor updates: sextant change, influenced items (2/20/2020)
+# Minor updates for Blight league: added oils to stackable currency; added new Atlas basetypes (8/6/2019)
+# Minor updates for Legion league: support for incubators; change from currency to Incubators (6/7/2019)
 # Minor updates for Synthesis league: support for enchanted, fractured, and synthesized items (3/8/2019)
 # Minor updates for Betrayal league (12/7/2018)
 # Highlights items with quality > 20
@@ -50,7 +52,7 @@
 # Add a currency-colored border to midtier currency
 Show # Currency - Mid
     Class "Currency"
-    BaseType "Oil" "Vial" "Bestiary Orb" "Stacked Deck" "Annulment" "Harbinger's" "Engineer's" "Binding" "Horizon" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Cartographer's Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of" "Chaos Shard" "Regal Shard"
+    BaseType "Oil" "Vial" "Bestiary Orb" "Delirium Orb" "Stacked Deck" "Annulment" "Harbinger's" "Engineer's" "Binding" "Horizon" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of" "Chaos Shard" "Regal Shard"
     SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
 	PlayAlertSound 3 300
@@ -102,14 +104,20 @@ Show # Maps/Fragments - Reliquary Key
     Class "Map"
 	BaseType "Reliquary"
 	PlayEffect Green
-	MinimapIcon 2 Green Circle
+	MinimapIcon 2 Green Star
 	PlayAlertSound 6 300
     SetFontSize 38
 
 Show # Maps/Fragments - Fragments and White Maps
     Class "Map"
+	MinimapIcon 2 White Circle
 	PlayAlertSound 6 300
     SetFontSize 38
+	
+Show # Watchstones
+    BaseType "Watchstone"
+	MinimapIcon 1 Green Circle
+	SetFontSize 42
 
 Show # Quest Items
     Class "Quest"
@@ -268,8 +276,6 @@ Show # Valuables - Talismans
     Class "Amulet"
 	BaseType "Talisman"
 	SetBorderColor 161 245 185 # Talisman/legacy
-	SetFontSize 38
-	PlayAlertSound 1 300
 
 Show # Valuables - Leaguestones
 	Class "Leaguestone"
@@ -286,33 +292,36 @@ Show #Valuables - Abyss Jewels
 	SetBorderColor 90 90 90 # Abyss
 	SetFontSize 38
 	PlayAlertSound 7 300
+	
+Show #Valuables - Cluster Jewels
+    BaseType "Cluster Jewel"
+    SetFontSize 38
+    PlayAlertSound 7 300
 
 Show #Valuables - Stygian Vise
 	BaseType "Stygian Vise"
 	SetBorderColor 90 90 90 # Abyss
 	
-Show # Valuables - Elder Items
-	ElderItem True
-	SetBorderColor 209 178 255 # Elder/Shaper Items
+Show # Valuables - Influenced Items
+	HasInfluence Shaper Elder Crusader Hunter Redeemer Warlord
+	SetBorderColor 209 178 255 # Influenced Items
 	SetFontSize 38
 	PlayAlertSound 1 300
-
-Show # Valuables - Shaper Items
-	ShaperItem True
-	SetBorderColor 209 178 255 # Elder/Shaper Items
-	SetFontSize 38
-	PlayAlertSound 1 300	
 
 Show # Valuables - Breach rings
 	BaseType "Breach Ring"
 	SetBorderColor 161 245 185 # Talisman/legacy
 	SetFontSize 38
 
-Show # Valuables - Jewels, Div Cards
-    Class "Jewel" "Divination Card"
-    SetBorderColor 150 0 0 # Special drops
+Show # Valuables - Div Cards
+    Class "Divination Card"
+    SetBorderColor 150 0 0 # Divination cards
     SetFontSize 38
     PlayAlertSound 7 300
+	
+Show # Valuables - Jewels
+    Class "Jewel"
+    SetFontSize 38
 
 Show # Valuables - Fishing Rods
     Class "Fishing Rod"
@@ -385,12 +394,39 @@ Show # ID - Veiled
 
 # Section: Rare Handling
 
+# Show rares on decent bases
+Show # Rares - Maraketh
+    Rarity = Rare
+    BaseType "Maraketh Bow" "Eclipse Staff" "Exquisite Blade" "Coronal Maul" "Fleshripper" "Dragoon Sword" "Sambar Sceptre" "Runic Hatchet" "Tiger Hook" "Behemoth Mace" "Profane Wand" "Gemini Claw"
+	SetBorderColor 255 255 255
+	SetFontSize 38
+
+Show # Rares - Other weapons
+    Rarity = Rare
+	BaseType "Imbued Wand" "Vaal Axe" "Harbinger Bow" "Ambusher" "Platinum Kris" "Maelst" "Judgement Staff" "Void Sceptre" "Harpy Rapier" "Opal Wand" "Terror Claw" "Imperial Claw" "Eternal Sword" "Midnight Blade" "Jewelled Foil" "Vaal Rapier" "Vaal Hatchet" "Royal Axe" "Auric Mace" "Nightmare Mace" "Void Sceptre" "Imperial Bow" "Lion Sword" "Vaal Greatsword" "Terror Maul" "Imperial Maul"
+    SetBorderColor 255 255 255
+	SetFontSize 38
+
+Show # Rares - Armour
+    Rarity = Rare
+	BaseType "Carnal Armour" "Assassin's Garb" "Astral Plate" "Occultist's Vestment" "Saintly Chainmail" "Triumphant Lamellar" "Vaal Regalia" "Glorious Plate" "Zodiac Leather" "Slink Boots" "Titan Greaves" "Sorcerer Boots" "Slink Gloves" "Sorcerer Gloves" "Titan Gauntlets" "Lion Pelt" "Eternal Burgonet" "Hubris Circlet" "Pinnacle Tower Shield" "Imperial Buckler" "Titanium Spirit Shield" "Archon Kite Shield" 
+    SetBorderColor 255 255 255
+	SetFontSize 38
+
+Show # Rares - Accessories
+    Rarity = Rare
+	Class "Amulet" "Ring" "Belt" "Quivers"
+	BaseType "Amber" "Jade" "Lapis" "Gold" "Onyx" "Citrine" "Turquoise" "Agate" "Leather" "Heavy Belt" "Rustic" "Sapphire" "Topaz" "Ruby" "Two-Stone" "Diamond" "Moonstone" "Broadhead" "Spike-Point"
+    SetBorderColor 255 255 255
+	SetFontSize 38
+
 # Dim 4x2 rares
 Show # Rares - Large
     Rarity = Rare
 	Width 2
 	Height 4
 	SetTextColor 255 255 119 150 # Dimmed rare
+	SetFontSize 25
 
 # Section: Regal Recipe
 
@@ -406,16 +442,10 @@ Show # Rares - 75+ - Nonrecipe
 	Class "Claw" "One Hand" "Sceptre"
 	Width 2
 
-Show # Rares - 75+ - Regal recipe - Quality & Jewelry
+Show # Rares - 75+ - Regal recipe - Jewelry
     ItemLevel >= 75
     Rarity = Rare
     Class "Rings" "Amulets" "Belts"
-    SetBorderColor 136 136 255 # Regal recipe bright
-
-Show # Rares - 75+ - Regal recipe - Quality & Jewelry
-    ItemLevel >= 75
-    Rarity = Rare
-    Quality > 15
     SetBorderColor 136 136 255 # Regal recipe bright
 
 Show # Rares - 75+ - Regal recipe
@@ -437,16 +467,10 @@ Show # Rares - 60+ - Nonrecipe
 	Class "Claw" "One Hand" "Sceptre"
 	Width 2
 
-Show # Rares - 60+ - Chaos recipe - Quality & Jewelry
+Show # Rares - 60+ - Chaos recipe - Jewelry
     ItemLevel >= 60
     Rarity = Rare
     Class "Rings" "Amulets" "Belts"
-    SetBorderColor 254 170 0 # Chaos recipe bright
-
-Show # Rares - 60+ - Chaos recipe - Quality & Jewelry
-    ItemLevel >= 60
-    Rarity = Rare
-    Quality > 15
     SetBorderColor 254 170 0 # Chaos recipe bright
 
 Show # Rares - 60+ - Chaos recipe
@@ -462,10 +486,16 @@ Show # Gems - Quality
     Class "Gem"
     SetBorderColor 54 100 146 # Valuable/quality gems
     SetFontSize 35
+	
+Show # Gems - Awakened
+    Class "Gem"
+	BaseType "Awakened"
+	SetBorderColor 54 100 146 # Valuable/quality gems
+    SetFontSize 42
 
 Show # Gems - Valuable
     Class "Gem"
-    BaseType "Empower" "Enhance" "Enlighten" "Portal" "Detonate Mines" "Added Chaos"
+    BaseType "Empower" "Enhance" "Enlighten" "Portal" "Detonate Mines"
     SetBorderColor 54 100 146 # Valuable/quality gems
     SetFontSize 35
 
@@ -473,7 +503,6 @@ Show # Gems - Vaal
     Class "Gem"
     BaseType "Vaal"
     SetBorderColor 150 0 0 # Vaal gems
-    SetFontSize 35
 
 Show # Gems - Normal/Leveled
     Class "Gem"
@@ -486,6 +515,8 @@ Show # Gems - Normal/Leveled
 Show # Bases - 84+ weapon crafting Maraketh
     ItemLevel >= 84
     Rarity = Normal
+	Mirrored False
+	Corrupted False
     BaseType "Maraketh Bow" "Eclipse Staff" "Exquisite Blade" "Coronal Maul" "Fleshripper" "Dragoon Sword" "Sambar Sceptre" "Runic Hatchet" "Tiger Hook" "Behemoth Mace" "Profane Wand" "Gemini Claw"
     SetBorderColor 54 100 146 # Crafting bases
 	SetFontSize 25
@@ -493,6 +524,8 @@ Show # Bases - 84+ weapon crafting Maraketh
 Show # Bases - 84+ weapon crafting other
     ItemLevel >= 84
     Rarity = Normal
+	Mirrored False
+	Corrupted False
 	BaseType "Imbued Wand" "Vaal Axe" "Harbinger Bow" "Ambusher" "Platinum Kris" "Maelst" "Judgement Staff" "Void Sceptre" "Harpy Rapier" "Opal Wand" "Terror Claw" "Imperial Claw" "Eternal Sword" "Midnight Blade" "Jewelled Foil" "Vaal Rapier" "Vaal Hatchet" "Royal Axe" "Auric Mace" "Nightmare Mace" "Void Sceptre" "Imperial Bow" "Lion Sword" "Vaal Greatsword" "Terror Maul" "Imperial Maul"
 	SetBorderColor 54 100 146 # Crafting bases
 	SetFontSize 25
@@ -500,22 +533,28 @@ Show # Bases - 84+ weapon crafting other
 Show # Bases - 86+ armour crafting
     ItemLevel >= 86
     Rarity = Normal
+	Mirrored False
+	Corrupted False
 	BaseType "Carnal Armour" "Assassin's Garb" "Astral Plate" "Occultist's Vestment" "Saintly Chainmail" "Triumphant Lamellar" "Vaal Regalia" "Glorious Plate" "Zodiac Leather" "Slink Boots" "Titan Greaves" "Sorcerer Boots" "Slink Gloves" "Sorcerer Gloves" "Titan Gauntlets" "Lion Pelt" "Eternal Burgonet" "Hubris Circlet" "Pinnacle Tower Shield" "Imperial Buckler" "Titanium Spirit Shield" "Archon Kite Shield" 
 	SetBorderColor 54 100 146 # Crafting bases
 	SetFontSize 25
 
 Show # Bases - 86+ accessory crafting
     ItemLevel >= 86
-    Rarity = Normal	
+    Rarity = Normal
+	Mirrored False
+	Corrupted False	
 	Class "Amulet" "Ring" "Belt" "Quivers"
 	BaseType "Amber" "Jade" "Lapis" "Gold" "Onyx" "Citrine" "Turquoise" "Agate" "Leather" "Heavy Belt" "Rustic" "Sapphire" "Topaz" "Ruby" "Two-Stone" "Diamond" "Moonstone" "Broadhead" "Spike-Point"
 	SetBorderColor 54 100 146 # Crafting bases
 	SetFontSize 25
 
-# Add a dark green border to normal items of desired chance bases
+# Add a dark green border to normal items of desired chance bases -ADD YOUR OWN PREFERENCES
 Show # Bases - Chance
     Rarity = Normal
-    BaseType "Leather Belt" "Sorcerer Boots"
+	Corrupted False
+	Mirrored False
+    BaseType "Jewelled Foil"
     SetBorderColor 0 73 0 # Chance bases
 		
 # Section: Rares
@@ -530,11 +569,15 @@ Show # Rares - Other
 
 Show # Chisel Hammers
     Rarity = Normal
+	Mirrored False
+	Corrupted False
     BaseType "Stone Hammer" "Rock Breaker" "Gavel"
 
 Show # Chisel Hammers
     Quality >= 12
     Rarity = Magic
+	Mirrored False
+	Corrupted False
     BaseType "Stone Hammer" "Rock Breaker" "Gavel"
 
 Show # Valuables - Sacrificial Garb
