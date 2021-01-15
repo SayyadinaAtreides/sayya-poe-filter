@@ -1,8 +1,15 @@
-# Sayya's item filter, v. 2.76 (3/11/2020)
+# Sayya's item filter, v. 2.81 (9/22/2020)
+#
+# EnableBlockGroups
 # 
 # Changelog:
 # 
-# Several minor changes: updated for Delirium, adjusted map and watchstone drops, removed borders from non-cluster/abyss jewels, etc. Also adjusted rare item displays on good bases (3/11/2019) 
+# Updated for Ritual league: removed Harvest content (1/15/2021)
+# Updated for Heist league (9/22/2020)
+# Updated for Harvest flower additions (7/22/2020)
+# Updated for Harvest league (6/21/2020)
+# Updated mid tier currency, simulacrum splinter appearance, adjusted rare drop handling, tweaked chrome item settings (3/15/2020)
+# Several minor changes: updated for Delirium, adjusted map and watchstone drops, removed borders from non-cluster/abyss jewels, etc. Also adjusted rare item displays on good bases (3/11/2020) 
 # Minor updates: sextant change, influenced items (2/20/2020)
 # Minor updates for Blight league: added oils to stackable currency; added new Atlas basetypes (8/6/2019)
 # Minor updates for Legion league: support for incubators; change from currency to Incubators (6/7/2019)
@@ -45,15 +52,14 @@
 # Maximized volume on alert sounds, tweaked high-end currency alert (5/1/2015)
 # Refined flask and quiver handling (4/30/2015)
 
-# EnableBlockGroups
-
 # Section: Currency
 
 # Add a currency-colored border to midtier currency
 Show # Currency - Mid
     Class "Currency"
-    BaseType "Oil" "Vial" "Bestiary Orb" "Delirium Orb" "Stacked Deck" "Annulment" "Harbinger's" "Engineer's" "Binding" "Horizon" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter of" "Chaos Shard" "Regal Shard"
-    SetBorderColor 170 158 130 # Uncommon currency
+    BaseType "Orb of Unmaking" "Ritual Vessel" "Regrading Lens" "Tempering Orb" "Tailoring Orb" "Rogue's Marker" "Time-light" "Fragmentation" "Deregulation" "Electroshock" "Haemocombustion" "Specularity" "Facetor's" "Oil" "Vial" "Bestiary Orb" "Delirium Orb" "Stacked Deck" "Annulment" "Harbinger's" "Engineer's" "Binding" "Horizon" "Ancient Shard" "Ancient Orb" "Fusing" "Regret" "Gemcutter's Prism" "Chisel" "Blessed" "Regal Orb" "Vaal Orb" "Chaos Orb" "Alchemy" "Scouring" "Perandus Coin" "Silver Coin" "Prophecy" "Remnant of Corruption" "Sextant" "Cartographer's Seal" "Unshaping Orb" "Blessing of" "Splinter" "Chaos Shard" "Regal Shard"
+    MinimapIcon 1 White Star
+	SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
 	PlayAlertSound 3 300
 	
@@ -64,13 +70,12 @@ Show # Currency - Delve
 	PlayEffect Blue
 	SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
-	PlayAlertSound 3 300
-	
+	PlayAlertSound 3 300	
 
 # Add a unique border and sound to high-end currency (AlertSound5)
 Show # Currency - High
     Class "Currency"
-    BaseType "Exalted" "Divine Orb" "Eternal Orb" "Mirror of" "Feather" "Mirror Shard"
+    BaseType "Exalted" "Divine Orb" "Eternal Orb" "Mirror of" "Feather" "Mirror Shard" "Awakener's" "Maven's"
 	PlayEffect White
 	MinimapIcon 0 Yellow Star
     SetBorderColor 175 96 37 # Rare currency
@@ -80,8 +85,86 @@ Show # Currency - High
 # Default handling of other currency
 Show # Currency - Low
     Class "Currency"
-
+	
 # Section: Maps, Uniques, Quest/Incursion Items, Lab, Pieces, Pantheon Souls
+
+# Ritual league bases
+
+Show # Ritual - Boots
+	BaseType "Dreamquest Slippers" "Cloudwhisper Boots" "Brimstone Treads" "Nightwind Slippers" "Windbreak Boots" "Darksteel Treads" "Duskwalk Slippers" "Stormrider Boots" "Basemetal Treads"
+	SetBorderColor 54 140 146 # Atlas bases
+	SetFontSize 38
+	
+Show # Ritual - Gloves
+	BaseType "Debilitation Gauntlets" "Gruelling Gauntlets" "Taxing Gauntlets" "Sinistral Gloves" "Southswing Gloves" "Gauche Gloves" "Nexus Gloves" "Aetherwind Gloves" "Leyline Gloves"
+	SetBorderColor 54 140 146 # Atlas bases
+	SetFontSize 38
+
+Show # Ritual - Helmets
+	BaseType "Blizzard Crown" "Winter Crown" "Gale Crown" "Archdemon Crown" "Demon Crown" "Imp Crown" "Atonement Mask" "Penitent Mask" "Sorrow Mask"
+	SetBorderColor 54 140 146 # Atlas bases
+	SetFontSize 38
+
+# Heist league items
+
+Show # Heist - Gems
+    Class "Gem"
+	AlternateQuality True
+	SetBorderColor 153 46 4 # Heist
+    SetFontSize 42
+
+Show # Heist - Trinket
+	Class "Trinket"
+	SetBorderColor 153 46 4 # Heist
+	SetFontSize 38
+	
+Show # Heist - Targets
+	Class "Heist Target"
+	SetBorderColor 153 46 4 # Heist
+	SetFontSize 42
+	
+Show # Heist - Contract
+	Class "Contract"
+	SetBorderColor 153 46 4 # Heist
+	SetFontSize 38
+	
+Show # Heist - Blueprint
+	Class "Blueprint"
+	SetBorderColor 153 46 4 # Heist
+	SetFontSize 42
+	
+Show # Heist - Equipment
+	Class "Heist Cloak" "Heist Brooch" "Heist Tool" "Heist Gear"
+	SetBorderColor 153 46 4 # Heist
+	SetFontSize 38
+
+Show # Heist - Replica Uniques
+	Rarity > Rare
+	Replica True
+	SetBorderColor 153 46 4 # Heist
+	SetFontSize 42
+	
+Show # Heist - High Level Experimented Bases
+	BaseType "Accumulator Wand" "Pneumatic Dagger" "Infernal Blade" "Void Fangs" "Psychotic Axe" "Anarchic Spiritblade" "Boom Mace" "Alternating Sceptre" "Solarine Bow" "Battery Staff" "Eventuality Rod" "Apex Cleaver" "Banishing Blade" "Impact Force Propagator" "Transfer-attuned Spirit Shield" "Cold-attuned Buckler" "Heat-attuned Tower Shield" "Micro-Distillery Belt" "Mechalarm Belt" "Astrolabe Amulet" "Simplex Amulet" "Cogwork Ring" "Geodesic Ring"
+	SetBorderColor 153 46 4 # Heist
+	SetFontSize 38
+	
+Show # Heist - Low Level Experimented Bases
+	BaseType "Assembler Wand" "Congregator Wand" "Hollowpoint Dagger" "Pressurised Dagger" "Flickerflame Blade" "Flashfire Blade" "Shadow Fangs" "Malign Fangs" "Maltreatment Axe" "Disapprobation Axe" "Fickle Spiritblade" "Capricious Spiritblade" "Flare Mace" "Crack Mace" "Oscillating Sceptre" "Stabilising Sceptre" "Hedron Bow" "Foundry Bow" "Transformer Staff" "Reciprocation Staff" "Capacity Rod" "Potentiality Rod" "Prime Cleaver" "Honed Cleaver" "Rebuking Blade" "Blasting Blade" "Blunt Force Condenser" "Crushing Force Magnifier" "Exhausting Spirit Shield" "Subsuming Spirit Shield" "Endothermic Buckler" "Polar Buckler" "Exothermic Tower Shield" "Magmatic Tower Shield" 
+	SetBorderColor 153 46 4 # Heist
+
+# Atlas-related content
+Show # Atlas - Craftable Watchstones
+	Class "Atlas"
+	BaseType "Chromium" "Platinum" "Titanium"
+	MinimapIcon 1 Green Circle
+	PlayAlertSound 6 300
+	SetFontSize 42
+	
+Show # Atlas - Default Watchstones
+    BaseType "Watchstone"
+	MinimapIcon 1 Green Circle
+	SetFontSize 42
 
 # Adjust font size of: uniques, maps (includes fragments, breachstones, reliquary keys, and offerings), quest items, and labyrinth items
 Show # Maps/Fragments - Red Maps
@@ -113,11 +196,6 @@ Show # Maps/Fragments - Fragments and White Maps
 	MinimapIcon 2 White Circle
 	PlayAlertSound 6 300
     SetFontSize 38
-	
-Show # Watchstones
-    BaseType "Watchstone"
-	MinimapIcon 1 Green Circle
-	SetFontSize 42
 
 Show # Quest Items
     Class "Quest"
@@ -259,7 +337,7 @@ Show # Valuables - Enchanted items
 	AnyEnchantment True
 	SetBorderColor 54 140 146 # Atlas bases
 	SetFontSize 38
-
+	
 Show # Valuables - Synthesized/Fractures
     FracturedItem True
     SetBorderColor 31 45 171 # Synthesized/Fractured
@@ -358,6 +436,15 @@ Show # Valuables - 6S
 Show # Valuables - RGB Items
     Rarity = Normal
     SocketGroup "RGB"
+	Height < 4
+    SetTextColor 255 255 255 # RGB whites
+    SetBackgroundColor 0 0 0 255 # Contrast background
+    SetFontSize 38
+
+Show # Valuables - RGB Items
+    Rarity = Normal
+    SocketGroup "RGB"
+	Width = 1
     SetTextColor 255 255 255 # RGB whites
     SetBackgroundColor 0 0 0 255 # Contrast background
     SetFontSize 38
@@ -365,6 +452,15 @@ Show # Valuables - RGB Items
 Show # Valuables - RGB Items
     Rarity = Magic
     SocketGroup "RGB"
+	Height < 4
+    SetTextColor 125 175 255 # RGB blues
+    SetBackgroundColor 0 0 0 255 # Contrast background
+    SetFontSize 38
+
+Show # Valuables - RGB Items
+    Rarity = Magic
+    SocketGroup "RGB"
+	Width = 1
     SetTextColor 125 175 255 # RGB blues
     SetBackgroundColor 0 0 0 255 # Contrast background
     SetFontSize 38
@@ -399,26 +495,22 @@ Show # Rares - Maraketh
     Rarity = Rare
     BaseType "Maraketh Bow" "Eclipse Staff" "Exquisite Blade" "Coronal Maul" "Fleshripper" "Dragoon Sword" "Sambar Sceptre" "Runic Hatchet" "Tiger Hook" "Behemoth Mace" "Profane Wand" "Gemini Claw"
 	SetBorderColor 255 255 255
-	SetFontSize 38
 
 Show # Rares - Other weapons
     Rarity = Rare
 	BaseType "Imbued Wand" "Vaal Axe" "Harbinger Bow" "Ambusher" "Platinum Kris" "Maelst" "Judgement Staff" "Void Sceptre" "Harpy Rapier" "Opal Wand" "Terror Claw" "Imperial Claw" "Eternal Sword" "Midnight Blade" "Jewelled Foil" "Vaal Rapier" "Vaal Hatchet" "Royal Axe" "Auric Mace" "Nightmare Mace" "Void Sceptre" "Imperial Bow" "Lion Sword" "Vaal Greatsword" "Terror Maul" "Imperial Maul"
     SetBorderColor 255 255 255
-	SetFontSize 38
 
 Show # Rares - Armour
     Rarity = Rare
 	BaseType "Carnal Armour" "Assassin's Garb" "Astral Plate" "Occultist's Vestment" "Saintly Chainmail" "Triumphant Lamellar" "Vaal Regalia" "Glorious Plate" "Zodiac Leather" "Slink Boots" "Titan Greaves" "Sorcerer Boots" "Slink Gloves" "Sorcerer Gloves" "Titan Gauntlets" "Lion Pelt" "Eternal Burgonet" "Hubris Circlet" "Pinnacle Tower Shield" "Imperial Buckler" "Titanium Spirit Shield" "Archon Kite Shield" 
     SetBorderColor 255 255 255
-	SetFontSize 38
 
 Show # Rares - Accessories
     Rarity = Rare
 	Class "Amulet" "Ring" "Belt" "Quivers"
 	BaseType "Amber" "Jade" "Lapis" "Gold" "Onyx" "Citrine" "Turquoise" "Agate" "Leather" "Heavy Belt" "Rustic" "Sapphire" "Topaz" "Ruby" "Two-Stone" "Diamond" "Moonstone" "Broadhead" "Spike-Point"
     SetBorderColor 255 255 255
-	SetFontSize 38
 
 # Dim 4x2 rares
 Show # Rares - Large
@@ -554,7 +646,7 @@ Show # Bases - Chance
     Rarity = Normal
 	Corrupted False
 	Mirrored False
-    BaseType "Jewelled Foil"
+    BaseType "Ezomyte Dagger"
     SetBorderColor 0 73 0 # Chance bases
 		
 # Section: Rares

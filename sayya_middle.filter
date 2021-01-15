@@ -1,4 +1,4 @@
-# Sayya's item filter, strict version, v. 2.81 (1/15/2021)
+# Sayya's item filter, medium strict, v. 2.81 (1/15/2021)
 # 
 # EnableBlockGroups
 #
@@ -7,8 +7,7 @@
 # Updated for Ritual league (including Heist mechanics and Harvest changes) (1/15/2021)
 # Updated for Harvest league (7/22/2020)
 # Updated mid tier currency, simulacrum splinter appearance, adjusted rare drop handling, tweaked chrome item settings (3/15/2020)
-# Major overhaul of strict filter (3/11/2020)
-# Several minor changes: updated for Delirium, adjusted map and watchstone drops, removed borders from non-cluster/abyss jewels, shrunk large rare items (3/11/2019) 
+# Several minor changes: updated for Delirium, adjusted map and watchstone drops, removed borders from non-cluster/abyss jewels, etc. Also adjusted rare item displays on good bases (3/11/2020) 
 # Minor updates: sextant change, influenced items (2/20/2020)
 # Minor updates for Blight league: added oils to stackable currency; added new Atlas basetypes (8/6/2019)
 # Minor updates for Legion league: support for incubators; change from currency to Incubators (6/7/2019)
@@ -69,7 +68,7 @@ Show # Currency - Delve
 	PlayEffect Blue
 	SetBorderColor 170 158 130 # Uncommon currency
     SetFontSize 38
-	PlayAlertSound 3 300
+	PlayAlertSound 3 300	
 
 # Add a unique border and sound to high-end currency (AlertSound5)
 Show # Currency - High
@@ -156,7 +155,7 @@ Show # Heist - High Level Experimented Bases
 Show # Heist - Low Level Experimented Bases
 	BaseType "Assembler Wand" "Congregator Wand" "Hollowpoint Dagger" "Pressurised Dagger" "Flickerflame Blade" "Flashfire Blade" "Shadow Fangs" "Malign Fangs" "Maltreatment Axe" "Disapprobation Axe" "Fickle Spiritblade" "Capricious Spiritblade" "Flare Mace" "Crack Mace" "Oscillating Sceptre" "Stabilising Sceptre" "Hedron Bow" "Foundry Bow" "Transformer Staff" "Reciprocation Staff" "Capacity Rod" "Potentiality Rod" "Prime Cleaver" "Honed Cleaver" "Rebuking Blade" "Blasting Blade" "Blunt Force Condenser" "Crushing Force Magnifier" "Exhausting Spirit Shield" "Subsuming Spirit Shield" "Endothermic Buckler" "Polar Buckler" "Exothermic Tower Shield" "Magmatic Tower Shield" 
 	SetBorderColor 153 46 4 # Heist
-	
+
 # Atlas-related content
 Show # Atlas - Craftable Watchstones
 	Class "Atlas"
@@ -328,6 +327,7 @@ Show # Valuables - Div Cards
 	
 Show # Valuables - Jewels
     Class "Jewel"
+    SetFontSize 38
 
 Show # Valuables - Fishing Rods
     Class "Fishing Rod"
@@ -360,6 +360,39 @@ Show # Valuables - 6S
     SetFontSize 42
     PlayAlertSound 2 300
 
+# Slightly lighten white/magic RGB items a la Antnee
+Show # Valuables - RGB Items
+    Rarity = Normal
+    SocketGroup "RGB"
+	Height < 4
+    SetTextColor 255 255 255 # RGB whites
+    SetBackgroundColor 0 0 0 255 # Contrast background
+    SetFontSize 38
+
+Show # Valuables - RGB Items
+    Rarity = Normal
+    SocketGroup "RGB"
+	Width = 1
+    SetTextColor 255 255 255 # RGB whites
+    SetBackgroundColor 0 0 0 255 # Contrast background
+    SetFontSize 38
+
+Show # Valuables - RGB Items
+    Rarity = Magic
+    SocketGroup "RGB"
+	Height < 4
+    SetTextColor 125 175 255 # RGB blues
+    SetBackgroundColor 0 0 0 255 # Contrast background
+    SetFontSize 38
+
+Show # Valuables - RGB Items
+    Rarity = Magic
+    SocketGroup "RGB"
+	Width = 1
+    SetTextColor 125 175 255 # RGB blues
+    SetBackgroundColor 0 0 0 255 # Contrast background
+    SetFontSize 38
+	
 # Section: Special Item Mods
 
 # Show special, identified mod items with a border and slightly enlarged
@@ -406,23 +439,24 @@ Show # Rares - Accessories
 	Class "Amulet" "Ring" "Belt" "Quivers"
 	BaseType "Amber" "Jade" "Lapis" "Gold" "Onyx" "Citrine" "Turquoise" "Agate" "Leather" "Heavy Belt" "Rustic" "Sapphire" "Topaz" "Ruby" "Two-Stone" "Diamond" "Moonstone" "Broadhead" "Spike-Point"
     SetBorderColor 255 255 255
-	
-# Hide other 4x2 rares
-Hide # Rares - Large
+
+# Dim 4x2 rares
+Show # Rares - Large
     Rarity = Rare
 	Width 2
 	Height 4
 	SetTextColor 255 255 119 150 # Dimmed rare
+	SetFontSize 25
 
 # Section: Regal Recipe
 
 # Add a light blue border to regal recipe rares
-Hide # Rares - 75+ - Nonrecipe
+Show # Rares - 75+ - Nonrecipe
     ItemLevel >= 75
     Rarity = Rare
     Class "Shields" "Quivers"
 	
-Hide # Rares - 75+ - Nonrecipe
+Show # Rares - 75+ - Nonrecipe
 	ItemLevel >= 75
 	Rarity = Rare
 	Class "Claw" "One Hand" "Sceptre"
@@ -442,12 +476,12 @@ Show # Rares - 75+ - Regal recipe
 # Section: Chaos Recipe
 
 # Add a yellow border to chaos recipe rares
-Hide # Rares - 60+ - Nonrecipe
+Show # Rares - 60+ - Nonrecipe
     ItemLevel >= 60
     Rarity = Rare
     Class "Shields" "Quivers"
 	
-Hide # Rares - 60+ - Nonrecipe
+Show # Rares - 60+ - Nonrecipe
 	ItemLevel >= 60
 	Rarity = Rare
 	Class "Claw" "One Hand" "Sceptre"
@@ -538,7 +572,7 @@ Show # Bases - 86+ accessory crafting
 	BaseType "Amber" "Jade" "Lapis" "Gold" "Onyx" "Citrine" "Turquoise" "Agate" "Leather" "Heavy Belt" "Rustic" "Sapphire" "Topaz" "Ruby" "Two-Stone" "Diamond" "Moonstone" "Broadhead" "Spike-Point"
 	SetBorderColor 54 100 146 # Crafting bases
 	SetFontSize 25
-	
+
 # Add a dark green border to normal items of desired chance bases -ADD YOUR OWN PREFERENCES
 Show # Bases - Chance
     Rarity = Normal
@@ -549,8 +583,8 @@ Show # Bases - Chance
 		
 # Section: Rares
 
-# Hide all rares not covered above (safeguard)
-Hide # Rares - Other
+# Show all rares not covered above (safeguard)
+Show # Rares - Other
     Rarity = Rare
 
 # Section: Other Items (chisel hammers, Maraketh weapons, Sacrificial Garb)
